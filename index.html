@@ -6,14 +6,14 @@
 <title>Arte Oriental · Tigre, Lótus e Bambu</title>
 <style>
 :root{
-  --cr:#8b0000;--cr2:#c0392b;--lq:#2a0808;--gd:#c8960c;--g2:#f0c040;
+  --cr:#8b0000;--lq:#2a0808;--gd:#c8960c;--g2:#f0c040;
   --ink:#1c0f0a;--ink2:#2e1a10;--p:#f5edd8;--p2:#ece0c6;--p3:#d8c49a;
   --st:#7a5c3a;--jd:#2e6b4f;--co:#1a3a6b;--mu:#5a3e28;--lo:#6b2080;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.85;color:var(--ink);background:var(--p);}
 
-/* ── HEADER ── */
+/* HEADER */
 .hdr{background:var(--lq);}
 .hdr-strip{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
 .hdr-in{padding:14px 32px 16px;display:flex;align-items:center;gap:18px;}
@@ -25,69 +25,105 @@ body{font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.85
 .lts{display:flex;gap:16px;align-items:center;flex-shrink:0;}
 .gbar{height:3px;background:linear-gradient(90deg,var(--lq),var(--gd) 30%,var(--cr) 50%,var(--gd) 70%,var(--lq));}
 
-/* ── NAV ── */
+/* NAV */
 nav{background:var(--ink);border-bottom:2px solid var(--gd);padding:0 32px;display:flex;flex-wrap:wrap;}
-nav a{color:rgba(240,192,64,.65);text-decoration:none;padding:10px 16px;border-right:1px solid rgba(200,150,12,.15);font-style:italic;font-size:12px;letter-spacing:1.5px;transition:background .15s,color .15s;}
+nav a{color:rgba(240,192,64,.65);text-decoration:none;padding:10px 16px;border-right:1px solid rgba(200,150,12,.15);font-style:italic;font-size:12px;letter-spacing:1.5px;transition:background .2s,color .2s;}
 nav a:first-child{border-left:1px solid rgba(200,150,12,.15);}
 nav a:hover,nav a.active{color:var(--g2);background:rgba(255,255,255,.06);}
 
-/* ── HERO ── */
+/* HERO */
 .hero{background:var(--cr);position:relative;overflow:hidden;}
 .sb{height:8px;background:repeating-linear-gradient(90deg,var(--lq) 0,var(--lq) 12px,var(--gd) 12px,var(--gd) 16px,var(--lq) 16px,var(--lq) 28px);}
-.hero-in{padding:48px 44px 52px;display:flex;align-items:center;gap:40px;position:relative;}
-/* ink-wash mountain silhouette */
+.hero-in{padding:56px 44px 60px;display:flex;align-items:center;gap:40px;position:relative;}
 .hero-in::before{content:'';position:absolute;inset:0;background:
-  radial-gradient(ellipse 60% 80% at 80% 110%,rgba(92,10,10,.55) 0%,transparent 70%),
+  radial-gradient(ellipse 60% 80% at 80% 110%,rgba(92,10,10,.6) 0%,transparent 70%),
   radial-gradient(ellipse 40% 60% at 20% 120%,rgba(60,5,5,.4) 0%,transparent 60%);pointer-events:none;}
+.hero-in::after{content:'虎蓮竹';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:200px;font-weight:900;color:rgba(255,255,255,.03);pointer-events:none;line-height:1;letter-spacing:-10px;user-select:none;}
 .hero-txt{flex:1;position:relative;z-index:1;}
 .hero-cat{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,192,64,.8);margin-bottom:10px;display:block;}
-.hero-txt h1{font-size:36px;color:#fff;font-weight:700;line-height:1.15;text-shadow:0 3px 18px rgba(0,0,0,.55);}
-.hero-zh{display:block;font-size:18px;color:var(--g2);letter-spacing:10px;margin-top:10px;opacity:.9;}
+.hero-txt h1{font-size:40px;color:#fff;font-weight:700;line-height:1.15;text-shadow:0 3px 18px rgba(0,0,0,.55);}
+.hero-zh{display:block;font-size:20px;color:var(--g2);letter-spacing:12px;margin-top:10px;opacity:.9;}
 .hero-txt p{color:rgba(255,255,255,.78);margin-top:18px;font-size:14px;max-width:520px;line-height:1.75;font-style:italic;}
+.hero-btns{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;}
+.btn-primary{background:var(--g2);color:var(--lq);padding:10px 22px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;}
+.btn-primary:hover{background:#fff;transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--g2);padding:10px 22px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid rgba(240,192,64,.4);cursor:pointer;transition:border-color .2s,transform .15s;}
+.btn-ghost:hover{border-color:var(--g2);transform:translateY(-2px);}
 .hero-seal{flex-shrink:0;position:relative;z-index:1;}
 
-/* ── WAVE DIVIDER ── */
-.wave-div{display:block;text-align:center;padding:10px 0;}
+/* TICKER */
+.ticker{background:var(--lq);border-bottom:1px solid rgba(200,150,12,.2);padding:8px 0;overflow:hidden;position:relative;}
+.ticker::before{content:'';position:absolute;left:0;top:0;bottom:0;width:60px;background:linear-gradient(90deg,var(--lq),transparent);z-index:2;pointer-events:none;}
+.ticker::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(270deg,var(--lq),transparent);z-index:2;pointer-events:none;}
+.ticker-inner{display:flex;gap:48px;animation:ticker 30s linear infinite;width:max-content;font-size:12px;color:rgba(240,192,64,.5);letter-spacing:2px;}
+.ticker-inner span{white-space:nowrap;font-style:italic;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── GRID SECTION ── */
-.grid-sect{max-width:1000px;margin:0 auto;padding:40px 24px 52px;}
-.sect-title{font-size:13px;letter-spacing:3.5px;text-transform:uppercase;color:var(--st);margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--p3);display:flex;align-items:center;gap:10px;}
+/* CARDS */
+.grid-sect{max-width:1060px;margin:0 auto;padding:44px 24px 52px;}
+.sect-title{font-size:13px;letter-spacing:3.5px;text-transform:uppercase;color:var(--st);margin-bottom:28px;padding-bottom:10px;border-bottom:1px solid var(--p3);display:flex;align-items:center;gap:10px;}
 .sect-title::before{content:'◈';color:var(--cr);font-size:12px;}
 .sect-title span{flex:1;}
 .sect-title .zh-sm{font-size:14px;color:rgba(139,0,0,.3);letter-spacing:4px;}
-
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.card{background:var(--p2);border:1px solid var(--p3);border-top:4px solid var(--cr);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;overflow:hidden;transition:transform .18s,box-shadow .18s;}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.card{background:var(--p2);border:1px solid var(--p3);border-top:4px solid var(--cr);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;overflow:hidden;transition:transform .2s,box-shadow .2s;position:relative;}
 .card:nth-child(2){border-top-color:var(--lo);}
 .card:nth-child(3){border-top-color:var(--jd);}
-.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(28,15,10,.12);}
-.card-ico{padding:26px 20px 8px;text-align:center;}
-.card-ico .big{font-size:52px;display:block;line-height:1;margin-bottom:10px;}
-.card-ico .kanji{font-size:26px;font-weight:900;display:block;letter-spacing:5px;opacity:.25;margin-bottom:6px;color:var(--ink);}
-.card-ico h3{font-size:17px;font-weight:700;letter-spacing:.5px;}
-.card-desc{padding:14px 20px 20px;font-size:13.5px;color:var(--mu);font-style:italic;border-top:1px solid var(--p3);flex:1;line-height:1.7;}
-.card-foot{padding:11px 20px;background:var(--lq);color:var(--g2);font-size:11px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;}
-.card-foot .arr{font-size:16px;opacity:.6;}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(28,15,10,.15);}
+.card::after{content:'→';position:absolute;bottom:14px;right:18px;font-size:18px;color:var(--g2);opacity:0;transition:opacity .2s,transform .2s;transform:translateX(-4px);}
+.card:hover::after{opacity:1;transform:translateX(0);}
+.card-ico{padding:30px 20px 10px;text-align:center;}
+.card-ico .big{font-size:58px;display:block;line-height:1;margin-bottom:12px;transition:transform .2s;}
+.card:hover .big{transform:scale(1.12);}
+.card-ico .kanji{font-size:28px;font-weight:900;display:block;letter-spacing:5px;opacity:.2;margin-bottom:6px;color:var(--ink);}
+.card-ico h3{font-size:18px;font-weight:700;letter-spacing:.5px;}
+.card-desc{padding:14px 20px 24px;font-size:13.5px;color:var(--mu);font-style:italic;border-top:1px solid var(--p3);flex:1;line-height:1.7;}
+.card-foot{padding:12px 20px;background:var(--lq);color:var(--g2);font-size:11px;letter-spacing:2px;text-transform:uppercase;}
 
-/* ── QUOTE BAND ── */
-.qband{background:var(--ink2);border-top:3px solid var(--gd);border-bottom:3px solid var(--gd);padding:36px 44px;text-align:center;position:relative;overflow:hidden;}
-.qband::before{content:'「';position:absolute;left:32px;top:10px;font-size:80px;color:rgba(200,150,12,.08);font-weight:900;line-height:1;}
-.qband::after{content:'」';position:absolute;right:32px;bottom:10px;font-size:80px;color:rgba(200,150,12,.08);font-weight:900;line-height:1;}
+/* QUIZ */
+.quiz-sect{background:var(--ink2);padding:52px 24px;}
+.quiz-inner{max-width:640px;margin:0 auto;text-align:center;}
+.quiz-inner .q-title{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,192,64,.5);margin-bottom:6px;display:block;}
+.quiz-inner h2{font-size:22px;color:#fff;font-weight:700;margin-bottom:8px;}
+.quiz-inner .q-sub{font-size:13.5px;color:rgba(255,255,255,.55);font-style:italic;margin-bottom:30px;}
+.q-question{font-size:17px;color:rgba(240,192,64,.9);font-style:italic;margin-bottom:22px;min-height:52px;line-height:1.6;}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.q-opt{background:rgba(255,255,255,.05);border:1px solid rgba(200,150,12,.2);color:rgba(240,192,64,.75);padding:12px 16px;font-size:13px;font-family:Georgia,serif;cursor:pointer;text-align:left;transition:background .15s,border-color .15s;}
+.q-opt:hover{background:rgba(255,255,255,.1);border-color:rgba(200,150,12,.5);}
+.q-opt.correct{background:rgba(46,107,79,.4);border-color:#2e6b4f;color:#a8ffcc;}
+.q-opt.wrong{background:rgba(139,0,0,.4);border-color:#8b0000;color:#ffaaaa;}
+.q-feedback{font-size:13.5px;font-style:italic;min-height:24px;color:rgba(240,192,64,.7);margin-bottom:16px;}
+.q-next{background:var(--gd);color:var(--lq);padding:10px 28px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;display:none;transition:background .2s;}
+.q-next:hover{background:var(--g2);}
+.q-progress{display:flex;gap:6px;justify-content:center;margin-bottom:20px;}
+.q-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15);transition:background .3s;}
+.q-dot.done{background:var(--gd);}
+.q-dot.active{background:var(--g2);}
+.q-score{font-size:28px;font-weight:700;color:var(--g2);margin-bottom:8px;}
+.q-restart{background:transparent;border:2px solid rgba(240,192,64,.4);color:var(--g2);padding:10px 24px;font-size:12px;letter-spacing:2px;font-family:Georgia,serif;cursor:pointer;margin-top:12px;transition:border-color .2s;}
+.q-restart:hover{border-color:var(--g2);}
+
+/* QUOTE BAND */
+.qband{background:var(--lq);border-top:3px solid var(--gd);border-bottom:3px solid var(--gd);padding:40px 44px;text-align:center;position:relative;overflow:hidden;}
+.qband::before{content:'「';position:absolute;left:32px;top:10px;font-size:80px;color:rgba(200,150,12,.07);font-weight:900;line-height:1;}
+.qband::after{content:'」';position:absolute;right:32px;bottom:10px;font-size:80px;color:rgba(200,150,12,.07);font-weight:900;line-height:1;}
 .qband .bkj{font-size:32px;letter-spacing:12px;color:rgba(200,150,12,.28);display:block;margin-bottom:12px;}
 .qband p{max-width:620px;margin:0 auto;font-size:15px;font-style:italic;line-height:1.9;color:rgba(240,192,64,.75);}
 
-/* ── VALUES ROW ── */
-.vals{max-width:1000px;margin:0 auto;padding:36px 24px 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.val{background:var(--p2);border:1px solid var(--p3);padding:22px 18px;text-align:center;}
-.val .vico{font-size:36px;display:block;margin-bottom:8px;}
-.val .vzh{font-size:26px;font-weight:900;display:block;margin-bottom:4px;}
+/* VALUES */
+.vals{max-width:1060px;margin:0 auto;padding:40px 24px 52px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.val{background:var(--p2);border:1px solid var(--p3);padding:28px 20px;text-align:center;transition:transform .2s,box-shadow .2s;cursor:default;}
+.val:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(28,15,10,.1);}
+.val .vico{font-size:40px;display:block;margin-bottom:10px;transition:transform .3s;}
+.val:hover .vico{transform:scale(1.15);}
+.val .vzh{font-size:30px;font-weight:900;display:block;margin-bottom:6px;}
 .val:nth-child(1) .vzh{color:var(--cr);}
 .val:nth-child(2) .vzh{color:var(--lo);}
 .val:nth-child(3) .vzh{color:var(--jd);}
-.val h4{font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:6px;}
-.val p{font-size:12.5px;color:var(--mu);font-style:italic;line-height:1.6;}
+.val h4{font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:8px;}
+.val p{font-size:12.5px;color:var(--mu);font-style:italic;line-height:1.65;}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{background:var(--lq);}
 .flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
 .fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;letter-spacing:.5px;}
@@ -97,18 +133,21 @@ footer{background:var(--lq);}
 @media(max-width:700px){
   .cards{grid-template-columns:1fr;}
   .vals{grid-template-columns:1fr;}
-  .hero-in{flex-direction:column;padding:28px 24px;}
-  .hero-txt h1{font-size:24px;}
+  .hero-in{flex-direction:column;padding:32px 22px;}
+  .hero-txt h1{font-size:26px;}
+  .hero-in::after{display:none;}
   .lts{display:none;}
   .hdr-in{padding:12px 18px;}
   nav{padding:0 12px;}
   nav a{padding:9px 10px;font-size:11px;}
+  .q-opts{grid-template-columns:1fr;}
+  .hero-btns{flex-direction:column;}
+  .qband{padding:28px 22px;}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="hdr">
   <div class="hdr-strip"></div>
   <div class="hdr-in">
@@ -143,9 +182,13 @@ footer{background:var(--lq);}
       <h1>Arte Oriental:<br>Tigre, Lótus e Bambu</h1>
       <span class="hero-zh">虎 · 蓮 · 竹</span>
       <p>A arte oriental tem uma relação profunda com a natureza. Nessa composição, o tigre, a lótus e o bambu foram escolhidos como símbolos de força, pureza e resistência — valores que atravessam séculos de tradição no Leste Asiático.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="tigre.html">Explorar Símbolos</a>
+        <a class="btn-ghost" href="juntos.html">Os Três Juntos</a>
+      </div>
     </div>
     <div class="hero-seal">
-      <svg width="110" height="110" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+      <svg width="120" height="120" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="106" height="106" fill="#5c0000" rx="5"/>
         <rect x="7" y="7" width="96" height="96" fill="none" stroke="#f0c040" stroke-width="2.5" rx="3"/>
         <rect x="13" y="13" width="84" height="84" fill="none" stroke="rgba(240,192,64,.2)" stroke-width="1" rx="2"/>
@@ -160,6 +203,24 @@ footer{background:var(--lq);}
   <div class="sb"></div>
 </div>
 
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span>🐯 Tigre · Força e Coragem</span>
+    <span>🪷 Lótus · Pureza e Renovação</span>
+    <span>🎋 Bambu · Resistência e Flexibilidade</span>
+    <span>☯ Os Três Juntos · Equilíbrio e Harmonia</span>
+    <span>🏯 Arte do Leste Asiático · China · Japão · Coreia</span>
+    <span>虎 · 蓮 · 竹 · 三合一</span>
+    <span>🐯 Tigre · Força e Coragem</span>
+    <span>🪷 Lótus · Pureza e Renovação</span>
+    <span>🎋 Bambu · Resistência e Flexibilidade</span>
+    <span>☯ Os Três Juntos · Equilíbrio e Harmonia</span>
+    <span>🏯 Arte do Leste Asiático · China · Japão · Coreia</span>
+    <span>虎 · 蓮 · 竹 · 三合一</span>
+  </div>
+</div>
+
 <!-- CARDS -->
 <div class="grid-sect">
   <div class="sect-title"><span>Explore os Símbolos</span><span class="zh-sm">探索符號</span></div>
@@ -171,7 +232,7 @@ footer{background:var(--lq);}
         <h3>Tigre</h3>
       </div>
       <div class="card-desc">Animal símbolo de força, coragem e proteção. Presente na arte chinesa, japonesa e coreana há milênios, como guardião e espírito protetor.</div>
-      <div class="card-foot">Ler artigo <span class="arr">→</span></div>
+      <div class="card-foot">Ler artigo</div>
     </a>
     <a class="card" href="lotus.html">
       <div class="card-ico">
@@ -180,7 +241,7 @@ footer{background:var(--lq);}
         <h3>Lótus</h3>
       </div>
       <div class="card-desc">Flor sagrada do budismo. Símbolo de pureza, renovação e iluminação espiritual. Nasce na lama, mas floresce em beleza imaculada.</div>
-      <div class="card-foot">Ler artigo <span class="arr">→</span></div>
+      <div class="card-foot">Ler artigo</div>
     </a>
     <a class="card" href="bambu.html">
       <div class="card-ico">
@@ -189,14 +250,33 @@ footer{background:var(--lq);}
         <h3>Bambu</h3>
       </div>
       <div class="card-desc">Planta símbolo de resistência, flexibilidade e humildade. Dobra com o vento mas nunca quebra — um dos Quatro Nobres da pintura chinesa.</div>
-      <div class="card-foot">Ler artigo <span class="arr">→</span></div>
+      <div class="card-foot">Ler artigo</div>
     </a>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-sect">
+  <div class="quiz-inner">
+    <span class="q-title">📚 · Teste seus conhecimentos</span>
+    <h2>Quiz · 測驗</h2>
+    <p class="q-sub">Responda as perguntas sobre arte oriental</p>
+    <div class="q-progress" id="qprog"></div>
+    <div class="q-question" id="qquestion"></div>
+    <div class="q-opts" id="qopts"></div>
+    <div class="q-feedback" id="qfeedback"></div>
+    <button class="q-next" id="qnext" onclick="nextQ()">Próxima →</button>
+    <div id="qresult" style="display:none">
+      <div class="q-score" id="qscore"></div>
+      <p style="color:rgba(240,192,64,.7);font-style:italic;font-size:14px;" id="qmsg"></p>
+      <button class="q-restart" onclick="startQuiz()">Jogar novamente ↺</button>
+    </div>
   </div>
 </div>
 
 <!-- QUOTE -->
 <div class="qband">
-  <span class="bkj">力 · 純 · 韌</span>
+  <span class="bkj">力 · 淨 · 韌</span>
   <p>Força. Pureza. Resistência. Três elementos da natureza oriental que, juntos, formam uma composição de equilíbrio, superação e conexão profunda com o mundo natural.</p>
 </div>
 
@@ -230,5 +310,79 @@ footer{background:var(--lq);}
     <div class="bc">By Laura Delphino</div>
   </div>
 </footer>
+
+<script>
+const questions = [
+  {q:"O tigre branco (白虎) representa qual direção na cosmologia chinesa?",opts:["Norte","Sul","Leste","Oeste"],ans:3,tip:"O Tigre Branco é o guardião do Oeste e do outono."},
+  {q:"A flor de lótus nasce em qual ambiente?",opts:["Desertos","Lagos e lama","Florestas secas","Montanhas nevadas"],ans:1,tip:"Ela nasce na lama e floresce limpa — símbolo de superação."},
+  {q:"O bambu faz parte de qual grupo famoso na pintura chinesa?",opts:["Os Cinco Nobres","Os Quatro Nobres (四君子)","Os Três Amigos","Os Oito Imortais"],ans:1,tip:"四君子 = ameixeira, orquídea, bambu e crisântemo."},
+  {q:"O que a lótus representa no budismo?",opts:["Riqueza e poder","Iluminação espiritual","Guerra e conquista","Fertilidade"],ans:1,tip:"Buda é frequentemente representado sentado sobre uma lótus."},
+  {q:"Qual é o animal símbolo nacional da Coreia do Sul?",opts:["Dragão","Guindaste","Tigre","Fênix"],ans:2,tip:"O tigre (호랑이) é o animal símbolo nacional coreano."},
+];
+let cur=0,score=0,answered=false;
+function startQuiz(){
+  cur=0;score=0;answered=false;
+  document.getElementById('qresult').style.display='none';
+  document.getElementById('qopts').style.display='grid';
+  document.getElementById('qfeedback').textContent='';
+  buildProgress();renderQ();
+}
+function buildProgress(){
+  const p=document.getElementById('qprog');
+  p.innerHTML='';
+  questions.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='q-dot'+(i===cur?' active':'');
+    p.appendChild(d);
+  });
+}
+function renderQ(){
+  answered=false;
+  const d=document.getElementById('qnext');d.style.display='none';
+  document.getElementById('qfeedback').textContent='';
+  const q=questions[cur];
+  document.getElementById('qquestion').textContent=`${cur+1}. ${q.q}`;
+  const opts=document.getElementById('qopts');
+  opts.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');
+    b.className='q-opt';b.textContent=o;
+    b.onclick=()=>answer(i);
+    opts.appendChild(b);
+  });
+  buildProgress();
+}
+function answer(i){
+  if(answered)return;answered=true;
+  const q=questions[cur];
+  const btns=document.querySelectorAll('.q-opt');
+  btns.forEach((b,idx)=>{
+    if(idx===q.ans)b.classList.add('correct');
+    else if(idx===i&&i!==q.ans)b.classList.add('wrong');
+    b.style.cursor='default';
+  });
+  const fb=document.getElementById('qfeedback');
+  if(i===q.ans){score++;fb.textContent='✓ Correto! '+q.tip;fb.style.color='#a8ffcc';}
+  else{fb.textContent='✗ '+q.tip;fb.style.color='#ffaaaa';}
+  const d=document.getElementById('qnext');
+  d.style.display='inline-block';
+  d.textContent=cur<questions.length-1?'Próxima →':'Ver resultado';
+}
+function nextQ(){
+  cur++;
+  if(cur>=questions.length){
+    document.getElementById('qopts').style.display='none';
+    document.getElementById('qnext').style.display='none';
+    document.getElementById('qquestion').textContent='';
+    document.getElementById('qfeedback').textContent='';
+    const r=document.getElementById('qresult');r.style.display='block';
+    document.getElementById('qscore').textContent=`${score} / ${questions.length}`;
+    const msgs=['Continue estudando! 📖','Bom trabalho! 🎋','Muito bem! 🪷','Excelente! 🐯','Perfeito! 虎蓮竹'];
+    document.getElementById('qmsg').textContent=msgs[score]||msgs[4];
+    buildProgress();
+  }else{renderQ();}
+}
+startQuiz();
+</script>
 </body>
 </html>

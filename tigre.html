@@ -87,6 +87,25 @@ article h2 .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--p3),tran
 .qbox::before{content:'「';position:absolute;top:4px;left:8px;font-size:24px;color:rgba(240,192,64,.2);font-weight:900;line-height:1;}
 .qbox p{font-size:13px;color:rgba(240,192,64,.75);font-style:italic;padding-left:14px;line-height:1.65;}
 /* FOOTER */
+/* TABS */
+.tabs{margin:28px 0 0;}
+.tab-btns{display:flex;border-bottom:2px solid var(--p3);margin-bottom:0;gap:0;}
+.tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--st);cursor:pointer;font-family:Georgia,serif;transition:color .15s;margin-bottom:-2px;}
+.tab-btn.active{color:var(--cr);border-bottom-color:var(--cr);}
+.tab-btn:hover{color:var(--cr);}
+.tab-pane{display:none;padding:20px 0 0;}
+.tab-pane.active{display:block;}
+/* ACCORDION */
+.acc{margin:20px 0;}
+.acc-item{border:1px solid var(--p3);margin-bottom:6px;}
+.acc-hd{width:100%;background:var(--p2);border:none;padding:12px 16px;text-align:left;font-size:13px;font-weight:700;letter-spacing:1px;color:var(--ink);cursor:pointer;font-family:Georgia,serif;display:flex;justify-content:space-between;align-items:center;transition:background .15s;}
+.acc-hd:hover{background:var(--p3);}
+.acc-hd .acc-ico{font-size:18px;transition:transform .25s;}
+.acc-hd.open .acc-ico{transform:rotate(45deg);}
+.acc-bd{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;}
+.acc-bd.open{max-height:400px;padding:14px 16px;}
+.acc-bd p{font-size:13.5px;color:var(--mu);font-style:italic;line-height:1.7;}
+/* FOOTER */
 footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
 .fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
 .fin .fzh{font-size:20px;letter-spacing:10px;color:rgba(200,150,12,.2);display:block;margin-bottom:6px;}
@@ -171,6 +190,31 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
     <p>Na composição artística, o tigre foi escolhido para representar a <strong>força e a coragem para enfrentar os desafios</strong>. Assim como o tigre avança com determinação sem recuar, a obra transmite essa energia para quem a observa.</p>
     <p>O tigre dialoga com a lótus (pureza) e o bambu (resistência), formando uma tríade de valores que se complementam em harmonia.</p>
 
+    <!-- ABAS INTERATIVAS -->
+    <div class="tabs">
+      <div class="tab-btns">
+        <button class="tab-btn active" onclick="switchTab(this,'t1')">🐯 Curiosidades</button>
+        <button class="tab-btn" onclick="switchTab(this,'t2')">🎨 Na Arte</button>
+        <button class="tab-btn" onclick="switchTab(this,'t3')">🌏 Por País</button>
+      </div>
+      <div id="t1" class="tab-pane active">
+        <p>🐯 O tigre é o <strong>3.º animal</strong> do zodíaco chinês — anos do tigre: 1998, 2010, 2022.</p>
+        <p>⚡ Na China antiga, crianças usavam <strong>chapéus com face de tigre</strong> para se proteger de doenças.</p>
+        <p>👑 O par <strong>Tigre + Dragão</strong> (龍虎) simboliza o equilíbrio entre terra e céu.</p>
+        <p>🏯 Samurais japoneses pintavam tigres em suas <strong>armaduras e bandeiras</strong> para invocar coragem.</p>
+      </div>
+      <div id="t2" class="tab-pane">
+        <p>🖌 Na pintura chinesa, o tigre era pintado com <strong>pinceladas rápidas e expressivas</strong>, transmitindo sua energia.</p>
+        <p>🏛 Esculturas de tigres guardam a entrada de <strong>templos e palácios</strong> em toda a Ásia.</p>
+        <p>🎭 No teatro kabuki japonês, o tigre representa <strong>vilões poderosos ou guerreiros invencíveis</strong>.</p>
+      </div>
+      <div id="t3" class="tab-pane">
+        <p>🇨🇳 <strong>China:</strong> Tigre Branco (白虎) — guardião do Oeste, um dos Quatro Símbolos Celestes.</p>
+        <p>🇯🇵 <strong>Japão:</strong> <em>Tora</em> — símbolo de bravura guerreira, par do dragão.</p>
+        <p>🇰🇷 <strong>Coreia:</strong> <em>Horangi</em> — espírito das montanhas, animal símbolo nacional.</p>
+      </div>
+    </div>
+
     <div class="note">
       <strong>注 · Nota:</strong> O tigre pode ter variações em seu simbolismo conforme a região e a época. As interpretações aqui refletem os usos mais recorrentes na arte do Leste Asiático.
     </div>
@@ -217,5 +261,18 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
 </div>
 
 <footer><div class="flat"></div><div class="fin"><span class="fzh">虎 · 蓮 · 竹</span>Arte Oriental · Trabalho Escolar · Leste Asiático<div class="bc">Made with IBM Bob</div></div></footer>
+<script>
+function switchTab(btn,id){
+  btn.closest('.tabs').querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.closest('.tabs').querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+function toggleAcc(hd){
+  hd.classList.toggle('open');
+  const bd=hd.nextElementSibling;
+  bd.classList.toggle('open');
+}
+</script>
 </body>
 </html>

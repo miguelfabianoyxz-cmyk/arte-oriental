@@ -79,11 +79,21 @@ article h2 .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--p3),tran
 .qbox{background:var(--lq);border-left:4px solid var(--gd);padding:14px 18px;position:relative;margin-top:4px;}
 .qbox::before{content:'「';position:absolute;top:4px;left:8px;font-size:24px;color:rgba(240,192,64,.2);font-weight:900;line-height:1;}
 .qbox p{font-size:13px;color:rgba(240,192,64,.75);font-style:italic;padding-left:14px;line-height:1.65;}
+/* TABS */
+.tabs{margin:28px 0 0;}
+.tab-btns{display:flex;border-bottom:2px solid var(--p3);gap:0;}
+.tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--st);cursor:pointer;font-family:Georgia,serif;transition:color .15s;margin-bottom:-2px;}
+.tab-btn.active{color:var(--lo);border-bottom-color:var(--lo);}
+.tab-btn:hover{color:var(--lo);}
+.tab-pane{display:none;padding:20px 0 0;}
+.tab-pane.active{display:block;}
+.tab-pane p{font-size:13.5px;color:var(--mu);font-style:italic;margin-bottom:10px;line-height:1.7;}
+/* FOOTER */
 footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
 .fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
 .fin .fzh{font-size:20px;letter-spacing:10px;color:rgba(200,150,12,.2);display:block;margin-bottom:6px;}
 .fin .bc{margin-top:8px;border-top:1px solid rgba(200,150,12,.1);padding-top:8px;font-size:11px;color:rgba(240,192,64,.22);}
-@media(max-width:720px){.wrap{grid-template-columns:1fr;}.ibox-wrap{float:none;width:100%;margin:0 0 18px;}.sidebar{position:static;}.hero-in{flex-direction:column;padding:28px 22px;}.hero-in::after{display:none;}.nav-cards{grid-template-columns:1fr;}.colors-grid{grid-template-columns:1fr;}.art-quote{padding:24px 22px;}}
+@media(max-width:720px){.wrap{grid-template-columns:1fr;}.ibox-wrap{float:none;width:100%;margin:0 0 18px;}.sidebar{position:static;}.hero-in{flex-direction:column;padding:28px 22px;}.hero-in::after{display:none;}.nav-cards{grid-template-columns:1fr;}.colors-grid{grid-template-columns:1fr;}.art-quote{padding:24px 22px;}.tab-btns{flex-wrap:wrap;}}
 </style>
 </head>
 <body>
@@ -172,6 +182,31 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
     <h2>Na nossa composição <span class="ln"></span></h2>
     <p>Na composição artística, a lótus representa a ideia de <strong>crescer e florescer mesmo depois de passar por momentos difíceis</strong>. Ela equilibra o trio ao lado do tigre (força) e do bambu (resistência), trazendo o elemento da <strong>pureza e da renovação espiritual</strong>.</p>
 
+    <!-- ABAS INTERATIVAS -->
+    <div class="tabs">
+      <div class="tab-btns">
+        <button class="tab-btn active" onclick="switchTab(this,'l1')">🪷 Curiosidades</button>
+        <button class="tab-btn" onclick="switchTab(this,'l2')">🕉 No Budismo</button>
+        <button class="tab-btn" onclick="switchTab(this,'l3')">🌏 Por País</button>
+      </div>
+      <div id="l1" class="tab-pane active">
+        <p>🪷 A lótus consegue <strong>regular sua própria temperatura</strong> — mantém 30–35°C mesmo quando o ar está frio.</p>
+        <p>💧 Suas pétalas têm uma <strong>superfície nanoscópica</strong> que repele água e sujeira naturalmente.</p>
+        <p>☀️ A lótus fecha suas pétalas à noite e reabre de manhã — símbolo de <strong>renascimento diário</strong>.</p>
+        <p>🌱 Uma semente de lótus pode germinar após <strong>mais de 1.300 anos</strong> — símbolo de eternidade.</p>
+      </div>
+      <div id="l2" class="tab-pane">
+        <p>🕉 No budismo, existem <strong>oito símbolos auspiciosos</strong>, e a lótus é o mais sagrado de todos.</p>
+        <p>🧘 Buda Amitabha vive no <strong>Paraíso da Lótus</strong> — um mundo de paz e iluminação.</p>
+        <p>📿 O mantra budista mais famoso — <em>Om Mani Padme Hum</em> — significa literalmente <strong>"a joia na lótus"</strong>.</p>
+      </div>
+      <div id="l3" class="tab-pane">
+        <p>🇨🇳 <strong>China:</strong> Flor nacional não-oficial; símbolo de pureza e perfeição moral confuciana.</p>
+        <p>🇯🇵 <strong>Japão:</strong> <em>Hasu</em> — usada em templos budistas como símbolo de renascimento.</p>
+        <p>🇮🇳 <strong>Índia:</strong> Flor nacional — símbolo da deusa Lakshmi e da iluminação espiritual.</p>
+      </div>
+    </div>
+
     <div class="note">
       <strong>注 · Nota:</strong> A lótus tem simbolismos ligeiramente diferentes no budismo, hinduísmo e nas tradições populares de cada país. As interpretações refletem o uso mais amplo na arte do Leste Asiático.
     </div>
@@ -217,5 +252,13 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
 </div>
 
 <footer><div class="flat"></div><div class="fin"><span class="fzh">虎 · 蓮 · 竹</span>Arte Oriental · Trabalho Escolar · Leste Asiático<div class="bc">Made with IBM Bob</div></div></footer>
+<script>
+function switchTab(btn,id){
+  btn.closest('.tabs').querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.closest('.tabs').querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
 </body>
 </html>
