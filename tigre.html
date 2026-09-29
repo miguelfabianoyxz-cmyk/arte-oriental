@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arte Oriental · Tigre 虎</title>
+<style>
+:root{--cr:#8b0000;--lq:#2a0808;--gd:#c8960c;--g2:#f0c040;--ink:#1c0f0a;--ink2:#2e1a10;--p:#f5edd8;--p2:#ece0c6;--p3:#d8c49a;--st:#7a5c3a;--jd:#2e6b4f;--co:#1a3a6b;--mu:#5a3e28;--lo:#6b2080;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.85;color:var(--ink);background:var(--p);}
+.hdr{background:var(--lq);}.hdr-strip{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
+.hdr-in{padding:14px 32px 16px;display:flex;align-items:center;gap:18px;}
+.kj{writing-mode:vertical-rl;font-size:30px;color:var(--g2);letter-spacing:6px;font-weight:900;flex-shrink:0;}
+.hdiv{width:1px;height:52px;background:linear-gradient(to bottom,transparent,var(--gd),transparent);flex-shrink:0;margin:0 4px;}
+.logo{flex:1;}.logo .zh{font-size:20px;color:var(--g2);font-weight:700;letter-spacing:5px;display:block;}
+.logo .pt{font-size:11px;color:rgba(240,192,64,.45);letter-spacing:3px;text-transform:uppercase;display:block;margin-top:3px;}
+.gbar{height:3px;background:linear-gradient(90deg,var(--lq),var(--gd) 30%,var(--cr) 50%,var(--gd) 70%,var(--lq));}
+nav{background:var(--ink);border-bottom:2px solid var(--gd);padding:0 32px;display:flex;flex-wrap:wrap;}
+nav a{color:rgba(240,192,64,.65);text-decoration:none;padding:10px 16px;border-right:1px solid rgba(200,150,12,.15);font-style:italic;font-size:12px;letter-spacing:1.5px;transition:background .15s,color .15s;}
+nav a:first-child{border-left:1px solid rgba(200,150,12,.15);}
+nav a:hover,nav a.active{color:var(--g2);background:rgba(255,255,255,.06);}
+/* HERO */
+.hero{background:var(--cr);}.sb{height:8px;background:repeating-linear-gradient(90deg,var(--lq) 0,var(--lq) 12px,var(--gd) 12px,var(--gd) 16px,var(--lq) 16px,var(--lq) 28px);}
+.hero-in{padding:36px 44px 40px;display:flex;align-items:center;gap:36px;position:relative;}
+.hero-in::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 90% 110%,rgba(60,5,5,.5) 0%,transparent 65%);pointer-events:none;}
+.hero-txt{flex:1;position:relative;z-index:1;}
+.hero-cat{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,192,64,.8);margin-bottom:8px;display:block;}
+.hero-txt h1{font-size:30px;color:#fff;font-weight:700;line-height:1.2;text-shadow:0 3px 16px rgba(0,0,0,.5);}
+.hero-zh{display:block;font-size:15px;color:var(--g2);letter-spacing:8px;margin-top:8px;opacity:.9;}
+/* LAYOUT */
+.wrap{max-width:1000px;margin:0 auto;padding:32px 24px 60px;display:grid;grid-template-columns:1fr 280px;gap:36px;align-items:start;}
+.meta{font-size:12px;color:var(--st);font-style:italic;margin-bottom:18px;padding-left:10px;border-left:3px solid var(--gd);}
+/* ARTICLE */
+article p{margin-bottom:15px;color:var(--ink2);}
+article strong{color:var(--cr);font-weight:700;}
+article h2{font-size:17px;font-weight:700;color:var(--lq);margin:30px 0 12px;display:flex;align-items:center;gap:10px;}
+article h2::before{content:'◈';color:var(--cr);font-size:12px;flex-shrink:0;}
+article h2 .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--p3),transparent);}
+/* INFOBOX — porcelana azul */
+.ibox-wrap{float:right;clear:right;margin:0 0 22px 26px;padding:3px;background:var(--co);width:220px;}
+.ibox{width:100%;border-collapse:collapse;font-size:13px;}
+.ibox caption{background:var(--co);color:#d8e8ff;font-size:11px;font-weight:700;padding:7px 10px;letter-spacing:2px;text-transform:uppercase;caption-side:top;border-bottom:2px solid var(--gd);}
+.ibox tr{background:#eef4ff;}.ibox tr:nth-child(even){background:#dce8f8;}
+.ibox td{padding:5px 9px;border-bottom:1px solid #b8ccee;color:#1a3a6b;font-size:12.5px;vertical-align:top;}
+.ibox td:first-child{font-weight:700;font-size:10.5px;text-transform:uppercase;color:#1a3a6b;width:80px;border-right:1px solid #b8ccee;}
+/* NOTE */
+.note{background:var(--p2);border:1px solid var(--p3);border-left:5px solid var(--gd);padding:13px 16px;font-size:13.5px;margin-top:22px;color:var(--ink2);font-style:italic;}
+.note strong{color:var(--gd);font-style:normal;}
+/* BADGES */
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
+.badge{padding:5px 14px;font-size:12px;font-weight:700;letter-spacing:1px;color:#fff;}
+.badge-cr{background:var(--cr);}
+.badge-gd{background:var(--gd);color:var(--ink);}
+.badge-co{background:var(--co);}
+/* NAV CARDS */
+.nav-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;}
+.nav-card{background:var(--p2);border:1px solid var(--p3);border-top:3px solid var(--cr);padding:14px 16px;text-decoration:none;color:var(--ink);text-align:center;}
+.nav-card:nth-child(2){border-top-color:var(--jd);}
+.nav-card:hover{background:var(--p3);}
+.nav-card .nc-ico{font-size:28px;display:block;margin-bottom:4px;}
+.nav-card .nc-lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--st);}
+/* SIDEBAR */
+.sidebar{position:sticky;top:18px;display:flex;flex-direction:column;gap:14px;}
+.panel{background:var(--p2);border:1px solid var(--p3);border-top:3px solid var(--cr);padding:16px;}
+.panel h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--st);padding-bottom:8px;margin-bottom:10px;border-bottom:1px solid var(--p3);display:flex;align-items:center;gap:6px;}
+.panel h4::before{content:'◈';color:var(--cr);font-size:10px;}
+.panel p{font-size:13px;color:var(--mu);font-style:italic;margin-bottom:8px;line-height:1.65;}
+.kanji-box{text-align:center;padding:8px 0 4px;}
+.kanji-box svg{display:inline-block;}
+.kanji-box .kb-label{font-size:11px;color:var(--st);letter-spacing:2px;margin-top:6px;display:block;}
+/* QUOTE BOX */
+.qbox{background:var(--lq);border-left:4px solid var(--gd);padding:14px 18px;position:relative;margin-top:4px;}
+.qbox::before{content:'「';position:absolute;top:4px;left:8px;font-size:24px;color:rgba(240,192,64,.2);font-weight:900;line-height:1;}
+.qbox p{font-size:13px;color:rgba(240,192,64,.75);font-style:italic;padding-left:14px;line-height:1.65;}
+/* FOOTER */
+footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
+.fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
+.fin .fzh{font-size:20px;letter-spacing:10px;color:rgba(200,150,12,.2);display:block;margin-bottom:6px;}
+.fin .bc{margin-top:8px;border-top:1px solid rgba(200,150,12,.1);padding-top:8px;font-size:11px;color:rgba(240,192,64,.22);}
+@media(max-width:720px){.wrap{grid-template-columns:1fr;}.ibox-wrap{float:none;width:100%;margin:0 0 18px;}.sidebar{position:static;}.hero-in{flex-direction:column;padding:24px 22px;}.nav-cards{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-strip"></div>
+  <div class="hdr-in">
+    <div class="kj">東方</div><div class="hdiv"></div>
+    <div class="logo"><span class="zh">東方藝術百科</span><span class="pt">Enciclopédia de Arte Oriental</span></div>
+  </div>
+</header>
+<div class="gbar"></div>
+<nav>
+  <a href="index.html">🏠 Início</a>
+  <a href="tigre.html" class="active">🐯 Tigre</a>
+  <a href="lotus.html">🪷 Lótus</a>
+  <a href="bambu.html">🎋 Bambu</a>
+  <a href="juntos.html">☯ Os Três Juntos</a>
+  <a href="qrcode.html">📱 QR Code</a>
+</nav>
+<div class="hero">
+  <div class="sb"></div>
+  <div class="hero-in">
+    <div class="hero-txt">
+      <span class="hero-cat">虎 · Símbolo da Força · Fauna Oriental</span>
+      <h1>Tigre · 虎</h1>
+      <span class="hero-zh">力量 · 勇氣 · 保護</span>
+    </div>
+    <svg width="96" height="96" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="106" height="106" fill="#5c0000" rx="5"/>
+      <rect x="7" y="7" width="96" height="96" fill="none" stroke="#f0c040" stroke-width="2.5" rx="3"/>
+      <text x="55" y="78" text-anchor="middle" font-size="68" fill="#f0c040" font-weight="900">虎</text>
+      <line x1="14" y1="88" x2="96" y2="88" stroke="rgba(240,192,64,.35)" stroke-width="1"/>
+      <text x="55" y="100" text-anchor="middle" font-size="9" fill="rgba(240,192,64,.55)" letter-spacing="3">TIGRE · FORÇA</text>
+    </svg>
+  </div>
+  <div class="sb"></div>
+</div>
+
+<div class="wrap">
+  <article>
+    <div class="meta">Arte Oriental · Fauna Simbólica · China · Japão · Coreia · Taoísmo</div>
+
+    <div class="ibox-wrap">
+      <table class="ibox">
+        <caption>虎 · Tigre</caption>
+        <tr><td>Kanji</td><td>虎 (hǔ / tora)</td></tr>
+        <tr><td>Cultura</td><td>Chinesa, Japonesa, Coreana</td></tr>
+        <tr><td>Símbolo</td><td>Força, Coragem, Proteção</td></tr>
+        <tr><td>Guardião</td><td>Oeste · Outono</td></tr>
+        <tr><td>Elemento</td><td>Metal</td></tr>
+        <tr><td>Zodíaco</td><td>3.º animal (生肖)</td></tr>
+      </table>
+    </div>
+
+    <p>O tigre é um dos animais mais presentes e respeitados de toda a arte e cultura do Leste Asiático. Desde pinturas em seda até esculturas em templos, sua imagem atravessa milênios de tradição na China, no Japão e na Coreia, carregando um conjunto rico de significados simbólicos.</p>
+
+    <div class="badges">
+      <span class="badge badge-cr">Força</span>
+      <span class="badge badge-cr">Coragem</span>
+      <span class="badge badge-cr">Proteção</span>
+      <span class="badge badge-gd">Poder</span>
+      <span class="badge badge-co">Liderança</span>
+    </div>
+
+    <h2>Na cultura chinesa <span class="ln"></span></h2>
+    <p>Na cultura chinesa, o tigre branco (白虎, Bái Hǔ) é um dos Quatro Símbolos do zodíaco celestial, representando o Oeste e o outono. Era visto como um animal capaz de <strong>afastar espíritos malignos</strong> e proteger lares e famílias. Por isso, sua imagem aparecia em pinturas, portões de templos e objetos do cotidiano.</p>
+    <p>Crianças usavam chapéus e sapatos com a face do tigre bordada para se proteger de doenças e perigos. Esse costume reflete o quanto o tigre era visto não apenas como símbolo de força, mas como um <strong>escudo espiritual</strong> na vida cotidiana.</p>
+
+    <h2>No Japão e na Coreia <span class="ln"></span></h2>
+    <p>No Japão, o tigre (<em>tora</em>) simboliza força e coragem guerreira. Era comum encontrar sua imagem em armaduras e bandeiras de samurais. O par tigre-dragão (龍虎, Ryūko) representa o equilíbrio entre forças opostas — o dragão nos céus e o tigre na terra.</p>
+    <p>Na Coreia, o tigre (호랑이, horangi) é um espírito guardião das montanhas, presente tanto em lendas assustadoras quanto em histórias cômicas do folclore popular. É considerado o animal símbolo nacional da Coreia do Sul.</p>
+
+    <h2>Na nossa composição <span class="ln"></span></h2>
+    <p>Na composição artística, o tigre foi escolhido para representar a <strong>força e a coragem para enfrentar os desafios</strong>. Assim como o tigre avança com determinação sem recuar, a obra transmite essa energia para quem a observa.</p>
+    <p>O tigre dialoga com a lótus (pureza) e o bambu (resistência), formando uma tríade de valores que se complementam em harmonia.</p>
+
+    <div class="note">
+      <strong>注 · Nota:</strong> O tigre pode ter variações em seu simbolismo conforme a região e a época. As interpretações aqui refletem os usos mais recorrentes na arte do Leste Asiático.
+    </div>
+
+    <div class="nav-cards">
+      <a class="nav-card" href="lotus.html"><span class="nc-ico">🪷</span><span class="nc-lbl">Próximo: Lótus →</span></a>
+      <a class="nav-card" href="juntos.html"><span class="nc-ico">☯</span><span class="nc-lbl">Os Três Juntos →</span></a>
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="panel">
+      <h4>Kanji · 漢字</h4>
+      <div class="kanji-box">
+        <svg width="130" height="130" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="130" height="130" fill="#fff8ee" rx="4"/>
+          <rect x="4" y="4" width="122" height="122" fill="none" stroke="#d8c49a" stroke-width="1.5" rx="3"/>
+          <text x="65" y="100" text-anchor="middle" font-size="88" fill="#8b0000" font-weight="900" opacity=".88">虎</text>
+        </svg>
+        <span class="kb-label">hǔ · tigre</span>
+      </div>
+    </div>
+    <div class="panel">
+      <h4>Quatro Símbolos · 四象</h4>
+      <p>O tigre branco (白虎) é um dos Quatro Símbolos Celestes da cosmologia chinesa:</p>
+      <p>🐉 Dragão Azul — Leste<br>🔴 Pássaro Vermelho — Sul<br>⬛ Tartaruga Negra — Norte<br>⬜ <strong>Tigre Branco — Oeste</strong></p>
+    </div>
+    <div class="panel">
+      <h4>Zodíaco Chinês · 生肖</h4>
+      <p>O tigre é o 3.º animal do zodíaco. Anos do tigre recentes: 1998, 2010, <strong>2022</strong>. Pessoas nascidas nesse ano são consideradas corajosas, ambiciosas e líderes naturais.</p>
+    </div>
+    <div class="panel">
+      <h4>Citação · 引語</h4>
+      <div class="qbox">
+        <p>O tigre na terra é como o dragão nos céus — ambos reis de seus domínios.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer><div class="flat"></div><div class="fin"><span class="fzh">虎 · 蓮 · 竹</span>Arte Oriental · Trabalho Escolar · Leste Asiático<div class="bc">Made with IBM Bob</div></div></footer>
+</body>
+</html>

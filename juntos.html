@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arte Oriental · Os Três Juntos ☯</title>
+<style>
+:root{--cr:#8b0000;--lq:#2a0808;--gd:#c8960c;--g2:#f0c040;--ink:#1c0f0a;--ink2:#2e1a10;--p:#f5edd8;--p2:#ece0c6;--p3:#d8c49a;--st:#7a5c3a;--jd:#2e6b4f;--co:#1a3a6b;--mu:#5a3e28;--lo:#6b2080;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.85;color:var(--ink);background:var(--p);}
+.hdr{background:var(--lq);}.hdr-strip{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
+.hdr-in{padding:14px 32px 16px;display:flex;align-items:center;gap:18px;}
+.kj{writing-mode:vertical-rl;font-size:30px;color:var(--g2);letter-spacing:6px;font-weight:900;flex-shrink:0;}
+.hdiv{width:1px;height:52px;background:linear-gradient(to bottom,transparent,var(--gd),transparent);flex-shrink:0;margin:0 4px;}
+.logo{flex:1;}.logo .zh{font-size:20px;color:var(--g2);font-weight:700;letter-spacing:5px;display:block;}
+.logo .pt{font-size:11px;color:rgba(240,192,64,.45);letter-spacing:3px;text-transform:uppercase;display:block;margin-top:3px;}
+.gbar{height:3px;background:linear-gradient(90deg,var(--lq),var(--gd) 30%,var(--cr) 50%,var(--gd) 70%,var(--lq));}
+nav{background:var(--ink);border-bottom:2px solid var(--gd);padding:0 32px;display:flex;flex-wrap:wrap;}
+nav a{color:rgba(240,192,64,.65);text-decoration:none;padding:10px 16px;border-right:1px solid rgba(200,150,12,.15);font-style:italic;font-size:12px;letter-spacing:1.5px;transition:background .15s,color .15s;}
+nav a:first-child{border-left:1px solid rgba(200,150,12,.15);}
+nav a:hover,nav a.active{color:var(--g2);background:rgba(255,255,255,.06);}
+/* HERO */
+.hero{background:var(--ink);}.sb{height:8px;background:repeating-linear-gradient(90deg,var(--lq) 0,var(--lq) 12px,var(--gd) 12px,var(--gd) 16px,var(--lq) 16px,var(--lq) 28px);}
+.hero-in{padding:38px 44px 42px;display:flex;align-items:center;gap:36px;position:relative;}
+.hero-txt{flex:1;position:relative;z-index:1;}
+.hero-cat{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,192,64,.8);margin-bottom:8px;display:block;}
+.hero-txt h1{font-size:30px;color:#fff;font-weight:700;line-height:1.2;}
+.hero-zh{display:block;font-size:15px;color:var(--g2);letter-spacing:8px;margin-top:8px;opacity:.9;}
+/* MAIN */
+.main{max-width:960px;margin:0 auto;padding:34px 24px 60px;}
+.meta{font-size:12px;color:var(--st);font-style:italic;margin-bottom:22px;padding-left:10px;border-left:3px solid var(--gd);}
+/* TRIO */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0 0 36px;}
+.trio-card{background:var(--p2);border:1px solid var(--p3);overflow:hidden;}
+.trio-head{padding:24px 18px 14px;text-align:center;border-bottom:1px solid var(--p3);}
+.trio-head .t-ico{font-size:50px;display:block;margin-bottom:10px;line-height:1;}
+.trio-head .t-zh{font-size:28px;font-weight:900;display:block;letter-spacing:4px;margin-bottom:6px;}
+.trio-head h3{font-size:16px;font-weight:700;}
+.trio-card:nth-child(1) .trio-head{background:rgba(139,0,0,.06);border-top:4px solid var(--cr);}
+.trio-card:nth-child(1) .trio-head .t-zh{color:var(--cr);}
+.trio-card:nth-child(2) .trio-head{background:rgba(107,32,128,.06);border-top:4px solid var(--lo);}
+.trio-card:nth-child(2) .trio-head .t-zh{color:var(--lo);}
+.trio-card:nth-child(3) .trio-head{background:rgba(46,107,79,.06);border-top:4px solid var(--jd);}
+.trio-card:nth-child(3) .trio-head .t-zh{color:var(--jd);}
+.trio-body{padding:14px 18px 18px;font-size:13.5px;color:var(--mu);font-style:italic;line-height:1.7;}
+/* SECTIONS */
+.section{margin-bottom:30px;}
+.section h2{font-size:17px;font-weight:700;color:var(--lq);margin-bottom:14px;display:flex;align-items:center;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--p3);}
+.section h2::before{content:'◈';color:var(--cr);font-size:12px;}
+.section h2 .ln{flex:1;}
+.section p{color:var(--ink2);margin-bottom:14px;}
+.section strong{color:var(--cr);font-weight:700;}
+/* TRIANGLE SVG section */
+.triangle-sect{text-align:center;padding:20px 0 28px;border-top:1px solid var(--p3);border-bottom:1px solid var(--p3);margin:28px 0;}
+/* VALUES */
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0 28px;}
+.val{background:var(--p2);border:1px solid var(--p3);padding:20px 16px;text-align:center;}
+.val .v-ico{font-size:32px;display:block;margin-bottom:8px;}
+.val .v-zh{font-size:24px;font-weight:900;display:block;margin-bottom:4px;}
+.val:nth-child(1) .v-zh{color:var(--cr);}
+.val:nth-child(2) .v-zh{color:var(--lo);}
+.val:nth-child(3) .v-zh{color:var(--jd);}
+.val h4{font-size:13px;font-weight:700;margin-bottom:6px;letter-spacing:.5px;}
+.val p{font-size:12.5px;color:var(--mu);font-style:italic;line-height:1.6;}
+/* NOTE */
+.note{background:var(--p2);border:1px solid var(--p3);border-left:5px solid var(--gd);padding:13px 16px;font-size:13.5px;margin-top:22px;color:var(--ink2);font-style:italic;}
+.note strong{color:var(--gd);font-style:normal;}
+/* QBAND */
+.qband{background:var(--ink2);border-top:3px solid var(--gd);border-bottom:3px solid var(--gd);padding:30px 44px;text-align:center;position:relative;overflow:hidden;margin:32px 0;}
+.qband::before{content:'「';position:absolute;left:28px;top:8px;font-size:72px;color:rgba(200,150,12,.07);font-weight:900;line-height:1;}
+.qband::after{content:'」';position:absolute;right:28px;bottom:8px;font-size:72px;color:rgba(200,150,12,.07);font-weight:900;line-height:1;}
+.qband .bkj{font-size:26px;letter-spacing:10px;color:rgba(200,150,12,.25);display:block;margin-bottom:10px;}
+.qband p{max-width:580px;margin:0 auto;font-size:14.5px;font-style:italic;line-height:1.9;color:rgba(240,192,64,.75);}
+.back-btn{display:inline-block;margin-top:24px;padding:11px 28px;background:var(--lq);color:var(--g2);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+.back-btn:hover{background:var(--cr);}
+footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
+.fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
+.fin .fzh{font-size:20px;letter-spacing:10px;color:rgba(200,150,12,.2);display:block;margin-bottom:6px;}
+.fin .bc{margin-top:8px;border-top:1px solid rgba(200,150,12,.1);padding-top:8px;font-size:11px;color:rgba(240,192,64,.22);}
+@media(max-width:700px){.trio{grid-template-columns:1fr;}.vals{grid-template-columns:1fr;}.hero-in{flex-direction:column;padding:24px 22px;}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-strip"></div>
+  <div class="hdr-in">
+    <div class="kj">東方</div><div class="hdiv"></div>
+    <div class="logo"><span class="zh">東方藝術百科</span><span class="pt">Enciclopédia de Arte Oriental</span></div>
+  </div>
+</header>
+<div class="gbar"></div>
+<nav>
+  <a href="index.html">🏠 Início</a>
+  <a href="tigre.html">🐯 Tigre</a>
+  <a href="lotus.html">🪷 Lótus</a>
+  <a href="bambu.html">🎋 Bambu</a>
+  <a href="juntos.html" class="active">☯ Os Três Juntos</a>
+  <a href="qrcode.html">📱 QR Code</a>
+</nav>
+<div class="hero">
+  <div class="sb"></div>
+  <div class="hero-in">
+    <div class="hero-txt">
+      <span class="hero-cat">☯ · A Composição Completa · Harmonia e Equilíbrio</span>
+      <h1>Os Três Juntos</h1>
+      <span class="hero-zh">虎 · 蓮 · 竹</span>
+    </div>
+    <svg width="96" height="96" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="106" height="106" fill="#1a0808" rx="5"/>
+      <rect x="7" y="7" width="96" height="96" fill="none" stroke="#f0c040" stroke-width="2" rx="3"/>
+      <text x="36" y="50" text-anchor="middle" font-size="24" fill="#f0c040" font-weight="900">虎</text>
+      <text x="74" y="50" text-anchor="middle" font-size="24" fill="#f0c040" font-weight="900">竹</text>
+      <text x="55" y="82" text-anchor="middle" font-size="24" fill="#f0c040" font-weight="900">蓮</text>
+      <line x1="36" y1="54" x2="74" y2="54" stroke="rgba(240,192,64,.3)" stroke-width="1"/>
+      <line x1="36" y1="36" x2="55" y2="60" stroke="rgba(240,192,64,.3)" stroke-width="1"/>
+      <line x1="74" y1="36" x2="55" y2="60" stroke="rgba(240,192,64,.3)" stroke-width="1"/>
+      <text x="55" y="100" text-anchor="middle" font-size="8" fill="rgba(240,192,64,.5)" letter-spacing="2">力 · 淨 · 韌</text>
+    </svg>
+  </div>
+  <div class="sb"></div>
+</div>
+
+<div class="main">
+  <div class="meta">Arte Oriental · Composição Simbólica · Trabalho Escolar · Leste Asiático</div>
+
+  <!-- TRIO CARDS -->
+  <div class="trio">
+    <div class="trio-card">
+      <div class="trio-head">
+        <span class="t-ico">🐯</span>
+        <span class="t-zh">虎</span>
+        <h3>Tigre</h3>
+      </div>
+      <div class="trio-body">Representa a <strong style="color:#8b0000">força</strong> e a <strong style="color:#8b0000">coragem</strong> para enfrentar desafios. O guardião que não recua diante de nenhum obstáculo.</div>
+    </div>
+    <div class="trio-card">
+      <div class="trio-head">
+        <span class="t-ico">🪷</span>
+        <span class="t-zh">蓮</span>
+        <h3>Lótus</h3>
+      </div>
+      <div class="trio-body">Representa a <strong style="color:#6b2080">pureza</strong> e a <strong style="color:#6b2080">superação</strong>. Nasce na lama, mas floresce em beleza — símbolo eterno de crescimento espiritual.</div>
+    </div>
+    <div class="trio-card">
+      <div class="trio-head">
+        <span class="t-ico">🎋</span>
+        <span class="t-zh">竹</span>
+        <h3>Bambu</h3>
+      </div>
+      <div class="trio-body">Representa a <strong style="color:#2e6b4f">resistência</strong> e a <strong style="color:#2e6b4f">flexibilidade</strong>. Dobra com o vento mas nunca quebra — sabedoria de manter a essência em qualquer tempestade.</div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="vals">
+    <div class="val"><span class="v-ico">🐯</span><span class="v-zh">力</span><h4>Força</h4><p>Coragem ativa para enfrentar a vida sem recuar.</p></div>
+    <div class="val"><span class="v-ico">🪷</span><span class="v-zh">淨</span><h4>Pureza</h4><p>Crescimento espiritual acima das adversidades.</p></div>
+    <div class="val"><span class="v-ico">🎋</span><span class="v-zh">韌</span><h4>Resistência</h4><p>Equilíbrio que preserva a identidade intacta.</p></div>
+  </div>
+
+  <!-- SECTIONS -->
+  <div class="section">
+    <h2>O significado da composição <span class="ln"></span></h2>
+    <p>Os três elementos escolhidos formam uma combinação de significados que se complementam perfeitamente. Cada um representa uma dimensão diferente da experiência humana — e juntos, criam um retrato completo de como enfrentar a vida com equilíbrio e profundidade.</p>
+    <p>O <strong>tigre</strong> traz a energia ativa: a força para agir e a coragem para não recuar. A <strong>lótus</strong> traz a dimensão espiritual: a pureza de intenção e a capacidade de renascer mesmo após dificuldades. O <strong>bambu</strong> traz a sabedoria prática: a resistência que não é rigidez, e a adaptação que preserva a essência.</p>
+  </div>
+
+  <div class="qband">
+    <span class="bkj">力 · 淨 · 韌</span>
+    <p>Força, pureza e resistência — três elementos da natureza oriental que, unidos, formam uma linguagem universal de equilíbrio, superação e conexão com o mundo.</p>
+  </div>
+
+  <div class="section">
+    <h2>Conexão com a natureza <span class="ln"></span></h2>
+    <p>A arte oriental sempre estabeleceu uma relação profunda entre os seres humanos e o mundo natural. Animais, flores e plantas não são apenas elementos decorativos — eles carregam ensinamentos sobre como viver com sabedoria.</p>
+    <p>O tigre, a lótus e o bambu foram escolhidos porque representam <strong>força, equilíbrio, superação e conexão com a natureza</strong> — valores presentes em diferentes culturas do Leste Asiático, mesmo que com variações em cada tradição.</p>
+  </div>
+
+  <div class="section">
+    <h2>Contexto cultural <span class="ln"></span></h2>
+    <p>É importante lembrar que esses símbolos podem ter significados diferentes dependendo do país, da época e da tradição. China, Japão e Coreia possuem culturas próprias, mesmo compartilhando algumas influências ao longo da história.</p>
+    <p>Por isso, essa obra foi inspirada de forma geral na arte do Leste Asiático, usando elementos da natureza que aparecem em diferentes tradições e que continuam sendo reconhecidos por seus significados até hoje.</p>
+  </div>
+
+  <div class="note">
+    <strong>注 · Nota:</strong> Os significados dos símbolos podem variar conforme a região, a época e a tradição cultural. As interpretações aqui refletem o uso mais amplo e recorrente na arte do Leste Asiático.
+  </div>
+
+  <a class="back-btn" href="index.html">← Voltar ao Início</a>
+</div>
+
+<footer><div class="flat"></div><div class="fin"><span class="fzh">虎 · 蓮 · 竹</span>Arte Oriental · Trabalho Escolar · Leste Asiático<div class="bc">Made with IBM Bob</div></div></footer>
+</body>
+</html>
