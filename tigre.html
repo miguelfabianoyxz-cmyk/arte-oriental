@@ -96,15 +96,34 @@ article h2 .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--p3),tran
 .tab-pane{display:none;padding:20px 0 0;}
 .tab-pane.active{display:block;}
 /* ACCORDION */
-.acc{margin:20px 0;}
+.acc{margin:28px 0 0;}
 .acc-item{border:1px solid var(--p3);margin-bottom:6px;}
-.acc-hd{width:100%;background:var(--p2);border:none;padding:12px 16px;text-align:left;font-size:13px;font-weight:700;letter-spacing:1px;color:var(--ink);cursor:pointer;font-family:Georgia,serif;display:flex;justify-content:space-between;align-items:center;transition:background .15s;}
+.acc-hd{width:100%;background:var(--p2);border:none;padding:13px 18px;text-align:left;font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--ink);cursor:pointer;font-family:Georgia,serif;display:flex;justify-content:space-between;align-items:center;transition:background .15s;}
 .acc-hd:hover{background:var(--p3);}
-.acc-hd .acc-ico{font-size:18px;transition:transform .25s;}
+.acc-hd .acc-ico{font-size:20px;transition:transform .3s;color:var(--cr);flex-shrink:0;}
+.acc-hd.open{background:var(--p3);}
 .acc-hd.open .acc-ico{transform:rotate(45deg);}
-.acc-bd{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;}
-.acc-bd.open{max-height:400px;padding:14px 16px;}
-.acc-bd p{font-size:13.5px;color:var(--mu);font-style:italic;line-height:1.7;}
+.acc-bd{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s;}
+.acc-bd.open{max-height:500px;padding:16px 18px 18px;}
+.acc-bd p{font-size:13.5px;color:var(--mu);font-style:italic;line-height:1.75;margin-bottom:8px;}
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0 0;}
+.gal-item{background:var(--lq);border:2px solid var(--p3);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1;}
+.gal-item:hover .gal-over{opacity:1;}
+.gal-item svg{width:100%;height:100%;display:block;}
+.gal-over{position:absolute;inset:0;background:rgba(28,8,8,.78);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;padding:10px;}
+.gal-over .go-title{color:var(--g2);font-size:13px;font-weight:700;letter-spacing:1px;text-align:center;margin-bottom:4px;}
+.gal-over .go-sub{color:rgba(240,192,64,.6);font-size:11px;text-align:center;font-style:italic;}
+/* TIMELINE */
+.timeline{margin:28px 0 0;position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--cr),var(--gd),var(--cr));}
+.tl-item{position:relative;margin-bottom:22px;}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--cr);border:2px solid var(--gd);}
+.tl-year{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--cr);text-transform:uppercase;display:block;margin-bottom:3px;}
+.tl-text{font-size:13.5px;color:var(--ink2);font-style:italic;line-height:1.65;}
+/* SECT LABEL */
+.sect-lbl{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--st);margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--p3);display:flex;align-items:center;gap:8px;}
+.sect-lbl::before{content:'◈';color:var(--cr);font-size:10px;}
 /* FOOTER */
 footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
 .fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
@@ -215,6 +234,92 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
       </div>
     </div>
 
+    <!-- GALERIA -->
+    <div class="sect-lbl">🖼 Galeria · 畫廊</div>
+    <div class="gallery">
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#1c0808"/>
+          <ellipse cx="60" cy="68" rx="38" ry="30" fill="#5c1a00" opacity=".7"/>
+          <circle cx="60" cy="52" r="22" fill="#8b3a00"/>
+          <ellipse cx="45" cy="44" rx="7" ry="9" fill="#a04800" transform="rotate(-15,45,44)"/>
+          <ellipse cx="75" cy="44" rx="7" ry="9" fill="#a04800" transform="rotate(15,75,44)"/>
+          <circle cx="52" cy="54" r="5" fill="#1c0808"/>
+          <circle cx="68" cy="54" r="5" fill="#1c0808"/>
+          <circle cx="53" cy="53" r="2" fill="#f0c040"/>
+          <circle cx="69" cy="53" r="2" fill="#f0c040"/>
+          <ellipse cx="60" cy="62" rx="6" ry="4" fill="#7a2a00"/>
+          <line x1="38" y1="60" x2="22" y2="56" stroke="#a08060" stroke-width="1.2"/><line x1="38" y1="63" x2="20" y2="63" stroke="#a08060" stroke-width="1.2"/><line x1="38" y1="66" x2="22" y2="70" stroke="#a08060" stroke-width="1.2"/>
+          <line x1="82" y1="60" x2="98" y2="56" stroke="#a08060" stroke-width="1.2"/><line x1="82" y1="63" x2="100" y2="63" stroke="#a08060" stroke-width="1.2"/><line x1="82" y1="66" x2="98" y2="70" stroke="#a08060" stroke-width="1.2"/>
+          <text x="60" y="105" text-anchor="middle" font-size="8" fill="rgba(200,150,12,.4)" letter-spacing="2">虎 TIGRE</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Rosto do Tigre</span><span class="go-sub">Expressão de poder e majestade</span></div>
+      </div>
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#0a1a2a"/>
+          <rect x="4" y="4" width="112" height="112" fill="none" stroke="#c8960c" stroke-width="1" opacity=".3"/>
+          <text x="60" y="78" text-anchor="middle" font-size="72" fill="#f0c040" font-weight="900" opacity=".9">虎</text>
+          <text x="60" y="108" text-anchor="middle" font-size="9" fill="rgba(200,150,12,.5)" letter-spacing="3">KANJI · FORÇA</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Kanji 虎</span><span class="go-sub">Escrita chinesa para "tigre"</span></div>
+      </div>
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#1a0a00"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#c8960c" stroke-width="1" opacity=".3"/>
+          <text x="60" y="35" text-anchor="middle" font-size="11" fill="#f0c040" opacity=".7">🐉 Dragão · Leste</text>
+          <text x="60" y="55" text-anchor="middle" font-size="11" fill="#f04040" opacity=".7">🔴 Pássaro · Sul</text>
+          <text x="60" y="72" text-anchor="middle" font-size="14" fill="#f0c040" font-weight="900">白虎</text>
+          <text x="60" y="85" text-anchor="middle" font-size="10" fill="#f0c040" opacity=".8">Tigre Branco · Oeste</text>
+          <text x="60" y="103" text-anchor="middle" font-size="11" fill="#8888ff" opacity=".7">⬛ Tartaruga · Norte</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Quatro Guardiões</span><span class="go-sub">Tigre Branco — protetor do Oeste</span></div>
+      </div>
+    </div>
+
+    <!-- ACORDEÃO -->
+    <div class="sect-lbl">❓ Perguntas Frequentes</div>
+    <div class="acc">
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">Por que o tigre é tão importante na arte oriental? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>O tigre era o maior predador terrestre da Ásia, representando o ápice da força animal. Culturas que conviviam com ele naturalmente o tornaram símbolo de poder, respeito e proteção espiritual — qualidades que reis e guerreiros queriam para si.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">O que diferencia o simbolismo do tigre na China, Japão e Coreia? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>Na <strong>China</strong>, o tigre branco é um dos Quatro Guardiões Celestes. No <strong>Japão</strong>, é par do dragão e símbolo de bravura guerreira. Na <strong>Coreia</strong>, é espírito das montanhas e animal símbolo nacional — mais presente no folclore cotidiano do que na cosmologia formal.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">O tigre aparece em festas e tradições populares? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>Sim! No Ano Novo Chinês, quando é o Ano do Tigre, decorações com o animal aparecem em todo lugar. Na Coreia, o tigre aparece em histórias infantis como personagem esperto e poderoso. No Japão, máscaras de tigre são usadas em danças rituais de proteção.</p></div>
+      </div>
+    </div>
+
+    <!-- LINHA DO TEMPO -->
+    <div class="sect-lbl">📅 Linha do Tempo · 年表</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-year">Séc. III a.C.</span>
+        <div class="tl-text">Os primeiros registros do <strong>Tigre Branco (白虎)</strong> como guardião celeste surgem nos textos cosmológicos chineses da dinastia Han.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. VI–VIII d.C.</span>
+        <div class="tl-text">O simbolismo do tigre chega ao <strong>Japão via budismo</strong> e taoísmo. Passa a representar o guerreiro ideal — corajoso, poderoso e nobre.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. X–XIV</span>
+        <div class="tl-text">Pinturas de tigres em tinta e sumi-ê tornam-se populares nos <strong>mosteiros zen</strong> do Japão como representação da natureza selvagem e da mente desperta.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. XVII–XIX</span>
+        <div class="tl-text">Na <strong>Coreia da Dinastia Joseon</strong>, o tigre vira personagem principal do folclore — aparece como guardião das montanhas sagradas e como herói cômico enganado por coelhos espertos.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Hoje</span>
+        <div class="tl-text">O tigre continua presente na arte contemporânea asiática, em tatuagens, animes, filmes e nos Jogos Olímpicos — mascote das Olimpíadas de Seul 1988 e Pyeongchang 2018.</div>
+      </div>
+    </div>
+
     <div class="note">
       <strong>注 · Nota:</strong> O tigre pode ter variações em seu simbolismo conforme a região e a época. As interpretações aqui refletem os usos mais recorrentes na arte do Leste Asiático.
     </div>
@@ -269,9 +374,9 @@ function switchTab(btn,id){
   document.getElementById(id).classList.add('active');
 }
 function toggleAcc(hd){
-  hd.classList.toggle('open');
-  const bd=hd.nextElementSibling;
-  bd.classList.toggle('open');
+  const wasOpen=hd.classList.contains('open');
+  hd.closest('.acc').querySelectorAll('.acc-hd').forEach(h=>{h.classList.remove('open');h.nextElementSibling.classList.remove('open');h.querySelector('.acc-ico').textContent='+';});
+  if(!wasOpen){hd.classList.add('open');hd.nextElementSibling.classList.add('open');hd.querySelector('.acc-ico').textContent='×';}
 }
 </script>
 </body>

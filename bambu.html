@@ -89,6 +89,35 @@ article h2 .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--p3),tran
 .tab-pane{display:none;padding:20px 0 0;}
 .tab-pane.active{display:block;}
 .tab-pane p{font-size:13.5px;color:var(--mu);font-style:italic;margin-bottom:10px;line-height:1.7;}
+/* ACCORDION */
+.acc{margin:28px 0 0;}
+.acc-item{border:1px solid var(--p3);margin-bottom:6px;}
+.acc-hd{width:100%;background:var(--p2);border:none;padding:13px 18px;text-align:left;font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--ink);cursor:pointer;font-family:Georgia,serif;display:flex;justify-content:space-between;align-items:center;transition:background .15s;}
+.acc-hd:hover{background:var(--p3);}
+.acc-hd .acc-ico{font-size:20px;transition:transform .3s;color:var(--jd);flex-shrink:0;}
+.acc-hd.open{background:var(--p3);}
+.acc-hd.open .acc-ico{transform:rotate(45deg);}
+.acc-bd{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s;}
+.acc-bd.open{max-height:500px;padding:16px 18px 18px;}
+.acc-bd p{font-size:13.5px;color:var(--mu);font-style:italic;line-height:1.75;margin-bottom:8px;}
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0 0;}
+.gal-item{background:var(--lq);border:2px solid var(--p3);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1;}
+.gal-item:hover .gal-over{opacity:1;}
+.gal-item svg{width:100%;height:100%;display:block;}
+.gal-over{position:absolute;inset:0;background:rgba(4,18,10,.82);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;padding:10px;}
+.gal-over .go-title{color:var(--g2);font-size:13px;font-weight:700;letter-spacing:1px;text-align:center;margin-bottom:4px;}
+.gal-over .go-sub{color:rgba(240,192,64,.6);font-size:11px;text-align:center;font-style:italic;}
+/* TIMELINE */
+.timeline{margin:28px 0 0;position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--jd),var(--gd),var(--jd));}
+.tl-item{position:relative;margin-bottom:22px;}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--jd);border:2px solid var(--gd);}
+.tl-year{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--jd);text-transform:uppercase;display:block;margin-bottom:3px;}
+.tl-text{font-size:13.5px;color:var(--ink2);font-style:italic;line-height:1.65;}
+/* SECT LABEL */
+.sect-lbl{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--st);margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--p3);display:flex;align-items:center;gap:8px;}
+.sect-lbl::before{content:'◈';color:var(--jd);font-size:10px;}
 /* FOOTER */
 footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
 .fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
@@ -209,6 +238,98 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
       </div>
     </div>
 
+    <!-- GALERIA -->
+    <div class="sect-lbl">🖼 Galeria · 畫廊</div>
+    <div class="gallery">
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#081808"/>
+          <rect x="50" y="5" width="12" height="110" rx="6" fill="#2e6b4f"/>
+          <rect x="48" y="22" width="16" height="5" rx="2.5" fill="#1a4a2e"/>
+          <rect x="48" y="46" width="16" height="5" rx="2.5" fill="#1a4a2e"/>
+          <rect x="48" y="70" width="16" height="5" rx="2.5" fill="#1a4a2e"/>
+          <rect x="48" y="94" width="16" height="5" rx="2.5" fill="#1a4a2e"/>
+          <rect x="68" y="12" width="9" height="96" rx="4.5" fill="#2e6b4f" opacity=".65"/>
+          <rect x="66" y="34" width="13" height="4" rx="2" fill="#1a4a2e" opacity=".65"/>
+          <rect x="66" y="62" width="13" height="4" rx="2" fill="#1a4a2e" opacity=".65"/>
+          <rect x="32" y="18" width="8" height="88" rx="4" fill="#2e6b4f" opacity=".5"/>
+          <rect x="30" y="40" width="12" height="4" rx="2" fill="#1a4a2e" opacity=".5"/>
+          <rect x="30" y="68" width="12" height="4" rx="2" fill="#1a4a2e" opacity=".5"/>
+          <text x="60" y="115" text-anchor="middle" font-size="8" fill="rgba(200,150,12,.4)" letter-spacing="2">竹 BAMBU</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Hastes de Bambu</span><span class="go-sub">Elegância e força na simplicidade</span></div>
+      </div>
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#050f08"/>
+          <rect x="4" y="4" width="112" height="112" fill="none" stroke="#c8960c" stroke-width="1" opacity=".3"/>
+          <text x="60" y="78" text-anchor="middle" font-size="72" fill="#2e6b4f" font-weight="900" opacity=".9">竹</text>
+          <text x="60" y="108" text-anchor="middle" font-size="9" fill="rgba(200,150,12,.5)" letter-spacing="3">KANJI · RESISTÊNCIA</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Kanji 竹</span><span class="go-sub">Escrita chinesa para "bambu"</span></div>
+      </div>
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#081208"/>
+          <text x="60" y="28" text-anchor="middle" font-size="10" fill="rgba(240,192,64,.7)" letter-spacing="1">四君子 · Os Quatro Nobres</text>
+          <text x="30" y="58" text-anchor="middle" font-size="20">🌸</text>
+          <text x="30" y="73" text-anchor="middle" font-size="9" fill="rgba(200,150,12,.6)">Ameixeira</text>
+          <text x="30" y="83" text-anchor="middle" font-size="8" fill="rgba(200,150,12,.4)">Inverno</text>
+          <text x="60" y="58" text-anchor="middle" font-size="20">🌿</text>
+          <text x="60" y="73" text-anchor="middle" font-size="9" fill="rgba(200,150,12,.6)">Orquídea</text>
+          <text x="60" y="83" text-anchor="middle" font-size="8" fill="rgba(200,150,12,.4)">Primavera</text>
+          <text x="90" y="58" text-anchor="middle" font-size="20">🌼</text>
+          <text x="90" y="73" text-anchor="middle" font-size="9" fill="rgba(200,150,12,.6)">Crisântemo</text>
+          <text x="90" y="83" text-anchor="middle" font-size="8" fill="rgba(200,150,12,.4)">Outono</text>
+          <rect x="38" y="90" width="44" height="18" fill="#1a4a2e" rx="3"/>
+          <text x="60" y="103" text-anchor="middle" font-size="9" fill="#a8ffcc" font-weight="700">🎋 Bambu · Verão</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Quatro Nobres</span><span class="go-sub">O bambu representa o Verão e a Integridade</span></div>
+      </div>
+    </div>
+
+    <!-- ACORDEÃO -->
+    <div class="sect-lbl">❓ Perguntas Frequentes</div>
+    <div class="acc">
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">Por que o bambu dobra mas não quebra? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>A estrutura do bambu é oca por dentro, com nós regulares que distribuem a pressão ao longo de toda a haste. Suas fibras longitudinais são extremamente flexíveis, permitindo dobrar mais de 30° sem romper. Essa estrutura é tão eficiente que engenheiros modernos a estudam para criar novos materiais.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">O que são os "Quatro Nobres" (四君子)? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>Os Quatro Nobres são os quatro temas mais nobres da pintura literati chinesa: <strong>ameixeira</strong> (esperança no inverno), <strong>orquídea</strong> (elegância na primavera), <strong>bambu</strong> (integridade no verão) e <strong>crisântemo</strong> (nobreza no outono). Dominar os quatro era considerado o ápice da formação de um artista culto.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">O bambu tem usos práticos além do simbólico? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>Muitos! O bambu é usado em <strong>construção, culinária, papel, têxteis e instrumentos musicais</strong>. Na China, os primeiros livros foram escritos em tiras de bambu. Na Ásia, andaimes de bambu ainda são usados em construções de arranha-céus. O bambu também é fundamental para a sobrevivência do panda gigante.</p></div>
+      </div>
+    </div>
+
+    <!-- LINHA DO TEMPO -->
+    <div class="sect-lbl">📅 Linha do Tempo · 年表</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-year">Séc. XIII a.C.</span>
+        <div class="tl-text">Os primeiros <strong>livros chineses</strong> são escritos em tiras de bambu amarradas com fio de seda — o bambu literalmente carrega o conhecimento humano.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. X–XI d.C.</span>
+        <div class="tl-text">O poeta e pintor <strong>Su Shi (蘇軾)</strong> eleva a pintura de bambu ao status de arte filosófica, dizendo que pintar bambu é pintar o próprio caráter do artista.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. XIII–XIV</span>
+        <div class="tl-text">O bambu torna-se o favorito da <strong>pintura literati (文人畫)</strong> — intelectuais e funcionários pintavam bambu como forma de expressar virtude e protesto contra o mundo corrupto.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. XVII–XIX</span>
+        <div class="tl-text">No Japão, o bambu integra os jardins zen e os <strong>rituais do chá</strong>. Utensílios de bambu tornam-se objetos sagrados na cerimônia do chá (茶道, Chadō).</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Hoje</span>
+        <div class="tl-text">O bambu é símbolo de <strong>sustentabilidade e arquitetura verde</strong>. Designers do mundo inteiro usam o bambu como material ecológico, unindo tradição oriental e futuro.</div>
+      </div>
+    </div>
+
     <div class="note">
       <strong>注 · Nota:</strong> O bambu é amplamente utilizado em várias culturas asiáticas. Seu simbolismo, embora compartilhado, pode ter variações regionais em cada tradição.
     </div>
@@ -260,6 +381,11 @@ function switchTab(btn,id){
   btn.closest('.tabs').querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(id).classList.add('active');
+}
+function toggleAcc(hd){
+  const wasOpen=hd.classList.contains('open');
+  hd.closest('.acc').querySelectorAll('.acc-hd').forEach(h=>{h.classList.remove('open');h.nextElementSibling.classList.remove('open');h.querySelector('.acc-ico').textContent='+';});
+  if(!wasOpen){hd.classList.add('open');hd.nextElementSibling.classList.add('open');hd.querySelector('.acc-ico').textContent='×';}
 }
 </script>
 </body>

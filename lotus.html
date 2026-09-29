@@ -88,6 +88,35 @@ article h2 .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--p3),tran
 .tab-pane{display:none;padding:20px 0 0;}
 .tab-pane.active{display:block;}
 .tab-pane p{font-size:13.5px;color:var(--mu);font-style:italic;margin-bottom:10px;line-height:1.7;}
+/* ACCORDION */
+.acc{margin:28px 0 0;}
+.acc-item{border:1px solid var(--p3);margin-bottom:6px;}
+.acc-hd{width:100%;background:var(--p2);border:none;padding:13px 18px;text-align:left;font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--ink);cursor:pointer;font-family:Georgia,serif;display:flex;justify-content:space-between;align-items:center;transition:background .15s;}
+.acc-hd:hover{background:var(--p3);}
+.acc-hd .acc-ico{font-size:20px;transition:transform .3s;color:var(--lo);flex-shrink:0;}
+.acc-hd.open{background:var(--p3);}
+.acc-hd.open .acc-ico{transform:rotate(45deg);}
+.acc-bd{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s;}
+.acc-bd.open{max-height:500px;padding:16px 18px 18px;}
+.acc-bd p{font-size:13.5px;color:var(--mu);font-style:italic;line-height:1.75;margin-bottom:8px;}
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0 0;}
+.gal-item{background:var(--lq);border:2px solid var(--p3);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1;}
+.gal-item:hover .gal-over{opacity:1;}
+.gal-item svg{width:100%;height:100%;display:block;}
+.gal-over{position:absolute;inset:0;background:rgba(20,4,30,.82);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;padding:10px;}
+.gal-over .go-title{color:var(--g2);font-size:13px;font-weight:700;letter-spacing:1px;text-align:center;margin-bottom:4px;}
+.gal-over .go-sub{color:rgba(240,192,64,.6);font-size:11px;text-align:center;font-style:italic;}
+/* TIMELINE */
+.timeline{margin:28px 0 0;position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--lo),var(--gd),var(--lo));}
+.tl-item{position:relative;margin-bottom:22px;}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--lo);border:2px solid var(--gd);}
+.tl-year{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--lo);text-transform:uppercase;display:block;margin-bottom:3px;}
+.tl-text{font-size:13.5px;color:var(--ink2);font-style:italic;line-height:1.65;}
+/* SECT LABEL */
+.sect-lbl{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--st);margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--p3);display:flex;align-items:center;gap:8px;}
+.sect-lbl::before{content:'◈';color:var(--lo);font-size:10px;}
 /* FOOTER */
 footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
 .fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
@@ -207,6 +236,90 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
       </div>
     </div>
 
+    <!-- GALERIA -->
+    <div class="sect-lbl">🖼 Galeria · 畫廊</div>
+    <div class="gallery">
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#1a0828"/>
+          <ellipse cx="60" cy="80" rx="22" ry="8" fill="#2e6b4f" opacity=".6"/>
+          <ellipse cx="60" cy="72" rx="18" ry="6" fill="#2e6b4f" opacity=".5"/>
+          <ellipse cx="60" cy="65" rx="20" ry="22" fill="#c060c0" opacity=".15" transform="rotate(-30,60,65)"/>
+          <ellipse cx="60" cy="65" rx="20" ry="22" fill="#d080d8" opacity=".25" transform="rotate(0,60,65)"/>
+          <ellipse cx="60" cy="65" rx="20" ry="22" fill="#c060c0" opacity=".15" transform="rotate(30,60,65)"/>
+          <ellipse cx="60" cy="65" rx="20" ry="22" fill="#b050b8" opacity=".2" transform="rotate(60,60,65)"/>
+          <ellipse cx="60" cy="65" rx="20" ry="22" fill="#b050b8" opacity=".2" transform="rotate(-60,60,65)"/>
+          <circle cx="60" cy="62" r="10" fill="#f0c040" opacity=".9"/>
+          <circle cx="60" cy="62" r="6" fill="#c8960c"/>
+          <text x="60" y="110" text-anchor="middle" font-size="8" fill="rgba(200,150,12,.4)" letter-spacing="2">蓮 LÓTUS</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Flor de Lótus</span><span class="go-sub">Símbolo de pureza e renovação</span></div>
+      </div>
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#0a0a1a"/>
+          <rect x="4" y="4" width="112" height="112" fill="none" stroke="#c8960c" stroke-width="1" opacity=".3"/>
+          <text x="60" y="78" text-anchor="middle" font-size="72" fill="#c860e0" font-weight="900" opacity=".85">蓮</text>
+          <text x="60" y="108" text-anchor="middle" font-size="9" fill="rgba(200,150,12,.5)" letter-spacing="3">KANJI · PUREZA</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Kanji 蓮</span><span class="go-sub">Escrita chinesa para "lótus"</span></div>
+      </div>
+      <div class="gal-item">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="120" fill="#0e0818"/>
+          <circle cx="60" cy="55" r="30" fill="none" stroke="#c860e0" stroke-width="1" opacity=".3"/>
+          <text x="60" y="30" text-anchor="middle" font-size="24" fill="#c860e0" opacity=".8">🕉</text>
+          <text x="60" y="52" text-anchor="middle" font-size="11" fill="rgba(240,192,64,.7)" font-style="italic">Om Mani</text>
+          <text x="60" y="67" text-anchor="middle" font-size="11" fill="rgba(240,192,64,.7)" font-style="italic">Padme Hum</text>
+          <text x="60" y="85" text-anchor="middle" font-size="9" fill="rgba(200,150,12,.5)">"a joia na lótus"</text>
+          <text x="60" y="110" text-anchor="middle" font-size="8" fill="rgba(200,150,12,.3)" letter-spacing="2">BUDISMO</text>
+        </svg>
+        <div class="gal-over"><span class="go-title">Mantra Sagrado</span><span class="go-sub">Om Mani Padme Hum — a joia na lótus</span></div>
+      </div>
+    </div>
+
+    <!-- ACORDEÃO -->
+    <div class="sect-lbl">❓ Perguntas Frequentes</div>
+    <div class="acc">
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">Por que a lótus é tão sagrada no budismo? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>A lótus nasce em água lodosa mas floresce completamente limpa — isso é visto como metáfora perfeita da iluminação: crescer acima das impurezas do mundo material sem ser contaminado por elas. Por isso Buda e os Bodhisattvas são retratados sentados ou em pé sobre flores de lótus.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">Qual a diferença entre os tipos de lótus? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>A <strong>lótus branca</strong> representa pureza da mente. A <strong>rosa</strong> é associada ao Buda histórico. A <strong>vermelha</strong> simboliza compaixão e amor. A <strong>azul</strong> representa sabedoria. A <strong>dourada</strong> é a iluminação plena — raramente retratada, pois representa o estado mais elevado.</p></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-hd" onclick="toggleAcc(this)">A lótus tem algum significado fora da religião? <span class="acc-ico">+</span></button>
+        <div class="acc-bd"><p>Sim! Na cultura popular chinesa, a lótus representa elegância feminina e beleza discreta. No Vietnã, é a flor nacional e símbolo da alma do povo. No Egito Antigo, a lótus azul era símbolo do sol e da criação. É um dos símbolos mais universais do mundo.</p></div>
+      </div>
+    </div>
+
+    <!-- LINHA DO TEMPO -->
+    <div class="sect-lbl">📅 Linha do Tempo · 年表</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-year">Séc. VI a.C.</span>
+        <div class="tl-text">A lótus já aparece nos primeiros textos budistas como símbolo da <strong>iluminação de Siddhartha Gautama</strong>. Torna-se o símbolo mais sagrado do budismo.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. I–V d.C.</span>
+        <div class="tl-text">Com a expansão do budismo para a China, a lótus se integra à arte chinesa. As primeiras <strong>esculturas de Buda sobre lótus</strong> aparecem nos mosteiros da Rota da Seda.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. VII–X</span>
+        <div class="tl-text">A lótus chega ao <strong>Japão junto com o budismo</strong>. Templos como o Byōdō-in em Uji são construídos com lagoas de lótus para simbolizar o Paraíso de Buda.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Séc. XIV–XIX</span>
+        <div class="tl-text">Na pintura chinesa e japonesa, a lótus torna-se tema recorrente da <strong>arte literati e do estilo yamato-e</strong>, representando delicadeza espiritual e pureza moral.</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Hoje</span>
+        <div class="tl-text">A lótus é o símbolo favorito do design asiático contemporâneo — aparece em logotipos, arquitetura (o famoso Templo da Lótus em Delhi) e é a flor nacional de <strong>Índia, Vietnã e Egito</strong>.</div>
+      </div>
+    </div>
+
     <div class="note">
       <strong>注 · Nota:</strong> A lótus tem simbolismos ligeiramente diferentes no budismo, hinduísmo e nas tradições populares de cada país. As interpretações refletem o uso mais amplo na arte do Leste Asiático.
     </div>
@@ -258,6 +371,11 @@ function switchTab(btn,id){
   btn.closest('.tabs').querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(id).classList.add('active');
+}
+function toggleAcc(hd){
+  const wasOpen=hd.classList.contains('open');
+  hd.closest('.acc').querySelectorAll('.acc-hd').forEach(h=>{h.classList.remove('open');h.nextElementSibling.classList.remove('open');h.querySelector('.acc-ico').textContent='+';});
+  if(!wasOpen){hd.classList.add('open');hd.nextElementSibling.classList.add('open');hd.querySelector('.acc-ico').textContent='×';}
 }
 </script>
 </body>
