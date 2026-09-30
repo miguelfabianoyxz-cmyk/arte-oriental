@@ -6,6 +6,26 @@
 <title>Arte Oriental · Bambu 竹</title>
 <style>
 :root{--cr:#8b0000;--lq:#2a0808;--gd:#c8960c;--g2:#f0c040;--ink:#1c0f0a;--ink2:#2e1a10;--p:#f5edd8;--p2:#ece0c6;--p3:#d8c49a;--st:#7a5c3a;--jd:#2e6b4f;--co:#1a3a6b;--mu:#5a3e28;--lo:#6b2080;}
+/* READING PROGRESS */
+#rdprog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--jd),var(--g2));width:0%;z-index:9999;transition:width .1s linear;}
+/* SCROLL-TO-TOP */
+.stt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--lq);border:2px solid var(--gd);color:var(--g2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:998;}
+.stt.show{opacity:1;pointer-events:all;}
+.stt:hover{background:var(--jd);transform:translateY(-3px);}
+/* LIKE BUTTON */
+.like-row{display:flex;align-items:center;gap:14px;margin:28px 0 0;padding:18px 20px;background:var(--p2);border:1px solid var(--p3);}
+.like-btn{background:none;border:2px solid rgba(46,107,79,.25);color:var(--jd);padding:9px 18px;font-size:13px;font-family:Georgia,serif;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .2s,border-color .2s,transform .15s;}
+.like-btn:hover{border-color:var(--jd);background:rgba(46,107,79,.06);transform:scale(1.04);}
+.like-btn.liked{background:rgba(46,107,79,.12);border-color:var(--jd);}
+.like-btn .hrt{font-size:17px;transition:transform .3s;}
+.like-btn.liked .hrt{transform:scale(1.3);}
+.like-count{font-size:13px;color:var(--mu);font-style:italic;}
+/* KANJI COPY */
+.kanji-copy{display:inline-flex;align-items:center;gap:8px;background:none;border:1px dashed rgba(200,150,12,.35);color:var(--g2);padding:6px 14px;font-size:13px;cursor:pointer;font-family:Georgia,serif;transition:border-color .2s,background .2s;margin-top:10px;}
+.kanji-copy:hover{border-color:var(--gd);background:rgba(200,150,12,.08);}
+.kanji-copy .kc-tip{font-size:11px;color:rgba(240,192,64,.5);font-style:italic;}
+.copy-toast{position:fixed;bottom:80px;right:28px;background:var(--lq);border:1px solid var(--gd);color:var(--g2);padding:9px 18px;font-size:12px;letter-spacing:1px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:9999;}
+.copy-toast.show{opacity:1;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.85;color:var(--ink);background:var(--p);}
 .hdr{background:var(--lq);}.hdr-strip{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
@@ -127,6 +147,9 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
 </style>
 </head>
 <body>
+<div id="rdprog"></div>
+<div class="copy-toast" id="ctst">竹 copiado!</div>
+<button class="stt" id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo">↑</button>
 <header class="hdr">
   <div class="hdr-strip"></div>
   <div class="hdr-in">
@@ -151,6 +174,7 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
       <h1>Bambu · 竹</h1>
       <span class="hero-zh">堅韌 · 靈活 · 謙遜</span>
       <span class="hero-desc">Dobra com o vento mas nunca quebra — símbolo eterno de resistência, flexibilidade e integridade na arte chinesa.</span>
+      <button class="kanji-copy" onclick="copyKanji('竹','ctst')" title="Copiar kanji do Bambu">竹 <span class="kc-tip">· copiar kanji</span></button>
     </div>
     <svg width="110" height="110" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
       <rect x="2" y="2" width="106" height="106" fill="#0e2e1e" rx="5"/>
@@ -212,6 +236,14 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
 
     <h2>Na nossa composição <span class="ln"></span></h2>
     <p>Na composição artística, o bambu representa a <strong>resistência e a capacidade de se adaptar sem perder a essência</strong>. Ele ancora o trio junto ao tigre (força) e à lótus (pureza), transmitindo a mensagem de que equilíbrio e firmeza não são opostos — são complementares.</p>
+
+    <!-- LIKE -->
+    <div class="like-row">
+      <button class="like-btn" id="like-btn" onclick="toggleLike('bambu')">
+        <span class="hrt" id="like-hrt">🤍</span> Curtir este artigo
+      </button>
+      <span class="like-count" id="like-count"></span>
+    </div>
 
     <!-- ABAS INTERATIVAS -->
     <div class="tabs">
@@ -386,6 +418,49 @@ function toggleAcc(hd){
   const wasOpen=hd.classList.contains('open');
   hd.closest('.acc').querySelectorAll('.acc-hd').forEach(h=>{h.classList.remove('open');h.nextElementSibling.classList.remove('open');h.querySelector('.acc-ico').textContent='+';});
   if(!wasOpen){hd.classList.add('open');hd.nextElementSibling.classList.add('open');hd.querySelector('.acc-ico').textContent='×';}
+}
+// ── READING PROGRESS ──
+window.addEventListener('scroll',()=>{
+  const el=document.documentElement;
+  const pct=(el.scrollTop/(el.scrollHeight-el.clientHeight))*100;
+  document.getElementById('rdprog').style.width=pct+'%';
+  document.getElementById('stt').classList.toggle('show',el.scrollTop>300);
+});
+// ── VISIT TRACKER ──
+localStorage.setItem('visited_bambu','1');
+// ── LIKE ──
+function toggleLike(page){
+  const key='like_'+page;
+  const btn=document.getElementById('like-btn');
+  const hrt=document.getElementById('like-hrt');
+  const cnt=document.getElementById('like-count');
+  let likes=parseInt(localStorage.getItem(key+'_count')||'0');
+  if(localStorage.getItem(key)){
+    localStorage.removeItem(key);likes=Math.max(0,likes-1);
+    btn.classList.remove('liked');hrt.textContent='🤍';
+  }else{
+    localStorage.setItem(key,'1');likes++;
+    btn.classList.add('liked');hrt.textContent='❤️';
+  }
+  localStorage.setItem(key+'_count',likes);
+  cnt.textContent=likes>0?likes+' pessoa'+(likes>1?'s':'')+' curtiu'+(likes>1?'ram':'')+' este artigo':'';
+}
+(function initLike(){
+  const key='like_bambu';
+  const liked=localStorage.getItem(key);
+  const likes=parseInt(localStorage.getItem(key+'_count')||'0');
+  if(liked){
+    document.getElementById('like-btn').classList.add('liked');
+    document.getElementById('like-hrt').textContent='❤️';
+  }
+  if(likes>0)document.getElementById('like-count').textContent=likes+' pessoa'+(likes>1?'s':'')+' curtiu'+(likes>1?'ram':'')+' este artigo';
+})();
+// ── KANJI COPY ──
+function copyKanji(text,toastId){
+  navigator.clipboard.writeText(text).catch(()=>{});
+  const t=document.getElementById(toastId);
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
 }
 </script>
 </body>

@@ -6,6 +6,34 @@
 <title>Arte Oriental · Os Três Juntos ☯</title>
 <style>
 :root{--cr:#8b0000;--lq:#2a0808;--gd:#c8960c;--g2:#f0c040;--ink:#1c0f0a;--ink2:#2e1a10;--p:#f5edd8;--p2:#ece0c6;--p3:#d8c49a;--st:#7a5c3a;--jd:#2e6b4f;--co:#1a3a6b;--mu:#5a3e28;--lo:#6b2080;}
+/* SCROLL-TO-TOP */
+.stt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--lq);border:2px solid var(--gd);color:var(--g2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:998;}
+.stt.show{opacity:1;pointer-events:all;}
+.stt:hover{background:var(--cr);transform:translateY(-3px);}
+/* INTERACTIVE TRIANGLE */
+.itri-sect{background:var(--ink2);padding:40px 24px;border-top:3px solid var(--gd);border-bottom:3px solid var(--gd);margin:28px 0;}
+.itri-inner{max-width:820px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.itri-svg-wrap{text-align:center;}
+.itri-svg-wrap p{font-size:11px;color:rgba(240,192,64,.4);letter-spacing:2px;text-transform:uppercase;margin-top:12px;}
+.tri-node{cursor:pointer;transition:transform .2s;}
+.tri-node:hover .tri-circle{r:32;opacity:1;}
+.tri-circle{transition:r .2s,opacity .2s;opacity:.7;}
+.tri-line{stroke:rgba(240,192,64,.2);stroke-width:1.5;transition:stroke .3s,stroke-opacity .3s;}
+.tri-line.hl{stroke:rgba(240,192,64,.6);stroke-width:2;}
+.tri-txt{font-weight:900;pointer-events:none;}
+.itri-panel{color:rgba(255,255,255,.9);}
+.itri-panel .ip-placeholder{font-size:13.5px;color:rgba(240,192,64,.35);font-style:italic;text-align:center;padding:32px 0;}
+.itri-panel .ip-ico{font-size:48px;display:block;margin-bottom:6px;}
+.itri-panel .ip-kj{font-size:36px;font-weight:900;display:block;margin-bottom:8px;letter-spacing:6px;}
+.itri-panel .ip-name{font-size:18px;font-weight:700;margin-bottom:8px;}
+.itri-panel .ip-desc{font-size:13.5px;font-style:italic;color:rgba(240,192,64,.7);line-height:1.75;margin-bottom:16px;}
+.itri-panel .ip-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.itri-panel .ip-tag{border:1px solid rgba(200,150,12,.3);color:rgba(240,192,64,.7);font-size:11px;padding:3px 12px;letter-spacing:1.5px;}
+.itri-panel .ip-link{display:inline-block;margin-top:14px;padding:9px 20px;background:var(--gd);color:var(--lq);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background .2s;}
+.itri-panel .ip-link:hover{background:var(--g2);}
+/* TRIO CARD HIGHLIGHT */
+.trio-card{transition:box-shadow .3s,transform .3s;}
+.trio-card.hl{box-shadow:0 0 0 2px var(--gd),0 8px 24px rgba(0,0,0,.2);transform:translateY(-4px);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Georgia,"Times New Roman",serif;font-size:15px;line-height:1.85;color:var(--ink);background:var(--p);}
 .hdr{background:var(--lq);}.hdr-strip{height:8px;background:repeating-linear-gradient(90deg,var(--gd) 0,var(--gd) 10px,var(--cr) 10px,var(--cr) 20px);}
@@ -77,10 +105,11 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
 .fin{padding:16px 24px 22px;text-align:center;color:rgba(240,192,64,.45);font-size:12px;}
 .fin .fzh{font-size:20px;letter-spacing:10px;color:rgba(200,150,12,.2);display:block;margin-bottom:6px;}
 .fin .bc{margin-top:8px;border-top:1px solid rgba(200,150,12,.1);padding-top:8px;font-size:11px;color:rgba(240,192,64,.22);}
-@media(max-width:700px){.trio{grid-template-columns:1fr;}.vals{grid-template-columns:1fr;}.hero-in{flex-direction:column;padding:24px 22px;}}
+@media(max-width:700px){.trio{grid-template-columns:1fr;}.vals{grid-template-columns:1fr;}.hero-in{flex-direction:column;padding:24px 22px;}.itri-inner{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
+<button class="stt" id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo">↑</button>
 <header class="hdr">
   <div class="hdr-strip"></div>
   <div class="hdr-in">
@@ -124,8 +153,8 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
   <div class="meta">Arte Oriental · Composição Simbólica · Trabalho Escolar · Leste Asiático</div>
 
   <!-- TRIO CARDS -->
-  <div class="trio">
-    <div class="trio-card">
+  <div class="trio" id="trio">
+    <div class="trio-card" id="tc-tigre">
       <div class="trio-head">
         <span class="t-ico">🐯</span>
         <span class="t-zh">虎</span>
@@ -133,7 +162,7 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
       </div>
       <div class="trio-body">Representa a <strong style="color:#8b0000">força</strong> e a <strong style="color:#8b0000">coragem</strong> para enfrentar desafios. O guardião que não recua diante de nenhum obstáculo.</div>
     </div>
-    <div class="trio-card">
+    <div class="trio-card" id="tc-lotus">
       <div class="trio-head">
         <span class="t-ico">🪷</span>
         <span class="t-zh">蓮</span>
@@ -141,13 +170,49 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
       </div>
       <div class="trio-body">Representa a <strong style="color:#6b2080">pureza</strong> e a <strong style="color:#6b2080">superação</strong>. Nasce na lama, mas floresce em beleza — símbolo eterno de crescimento espiritual.</div>
     </div>
-    <div class="trio-card">
+    <div class="trio-card" id="tc-bambu">
       <div class="trio-head">
         <span class="t-ico">🎋</span>
         <span class="t-zh">竹</span>
         <h3>Bambu</h3>
       </div>
       <div class="trio-body">Representa a <strong style="color:#2e6b4f">resistência</strong> e a <strong style="color:#2e6b4f">flexibilidade</strong>. Dobra com o vento mas nunca quebra — sabedoria de manter a essência em qualquer tempestade.</div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE TRIANGLE -->
+  <div class="itri-sect">
+    <div class="itri-inner">
+      <div class="itri-svg-wrap">
+        <svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" id="tritri">
+          <!-- connection lines -->
+          <line id="ln-tb" x1="130" y1="44" x2="218" y2="200" class="tri-line"/>
+          <line id="ln-tl" x1="130" y1="44" x2="42" y2="200" class="tri-line"/>
+          <line id="ln-bl" x1="218" y1="200" x2="42" y2="200" class="tri-line"/>
+          <!-- center yin-yang hint -->
+          <circle cx="130" cy="148" r="18" fill="rgba(200,150,12,.06)" stroke="rgba(200,150,12,.12)" stroke-width="1"/>
+          <text x="130" y="154" text-anchor="middle" font-size="16" fill="rgba(200,150,12,.3)" font-weight="900">☯</text>
+          <!-- TIGER node (top) -->
+          <g class="tri-node" id="tn-tigre" onclick="showPanel('tigre')" onmouseenter="hlNode('tigre')" onmouseleave="unhNode()">
+            <circle cx="130" cy="44" r="28" class="tri-circle" fill="#8b0000"/>
+            <text x="130" y="50" text-anchor="middle" font-size="24" fill="#f0c040" font-weight="900" class="tri-txt">虎</text>
+          </g>
+          <!-- BAMBU node (bottom-right) -->
+          <g class="tri-node" id="tn-bambu" onclick="showPanel('bambu')" onmouseenter="hlNode('bambu')" onmouseleave="unhNode()">
+            <circle cx="218" cy="200" r="28" class="tri-circle" fill="#2e6b4f"/>
+            <text x="218" y="207" text-anchor="middle" font-size="24" fill="#f0c040" font-weight="900" class="tri-txt">竹</text>
+          </g>
+          <!-- LOTUS node (bottom-left) -->
+          <g class="tri-node" id="tn-lotus" onclick="showPanel('lotus')" onmouseenter="hlNode('lotus')" onmouseleave="unhNode()">
+            <circle cx="42" cy="200" r="28" class="tri-circle" fill="#6b2080"/>
+            <text x="42" y="207" text-anchor="middle" font-size="24" fill="#f0c040" font-weight="900" class="tri-txt">蓮</text>
+          </g>
+        </svg>
+        <p>Clique ou passe o mouse sobre um símbolo</p>
+      </div>
+      <div class="itri-panel" id="itri-panel">
+        <div class="ip-placeholder">← Interaja com o triângulo para explorar cada símbolo</div>
+      </div>
     </div>
   </div>
 
@@ -190,5 +255,72 @@ footer{background:var(--lq);}.flat{height:8px;background:repeating-linear-gradie
 </div>
 
 <footer><div class="flat"></div><div class="fin"><span class="fzh">虎 · 蓮 · 竹</span>Arte Oriental · Trabalho Escolar · Leste Asiático<div class="bc">By Laura Delphino</div></div></footer>
+
+<script>
+// ── SCROLL TO TOP ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('stt').classList.toggle('show',window.scrollY>280);
+});
+
+// ── INTERACTIVE TRIANGLE ──
+const panelData={
+  tigre:{ico:'🐯',kj:'虎',color:'#8b0000',name:'Tigre',desc:'Rei dos animais terrestres — símbolo de força, coragem e proteção. O tigre avança com determinação e nunca recua diante dos desafios.',tags:['Força','Coragem','Proteção','Poder'],link:'tigre.html',lines:['ln-tb','ln-tl']},
+  lotus:{ico:'🪷',kj:'蓮',color:'#6b2080',name:'Lótus',desc:'Flor sagrada do budismo — nasce na lama, mas floresce em pureza. Símbolo de renovação espiritual e superação das dificuldades.',tags:['Pureza','Renovação','Iluminação','Superação'],link:'lotus.html',lines:['ln-tl','ln-bl']},
+  bambu:{ico:'🎋',kj:'竹',color:'#2e6b4f',name:'Bambu',desc:'Dobra com o vento mas nunca quebra — a sabedoria de ceder sem perder a essência. Símbolo de resistência, flexibilidade e humildade.',tags:['Resistência','Flexibilidade','Humildade','Perseverança'],link:'bambu.html',lines:['ln-tb','ln-bl']},
+};
+const cardMap={tigre:'tc-tigre',lotus:'tc-lotus',bambu:'tc-bambu'};
+let activePanel=null;
+
+function showPanel(key){
+  activePanel=key;
+  const d=panelData[key];
+  document.getElementById('itri-panel').innerHTML=`
+    <span class="ip-ico">${d.ico}</span>
+    <span class="ip-kj" style="color:${d.color}">${d.kj}</span>
+    <div class="ip-name">${d.name}</div>
+    <div class="ip-desc">${d.desc}</div>
+    <div class="ip-tags">${d.tags.map(t=>`<span class="ip-tag">${t}</span>`).join('')}</div>
+    <a class="ip-link" href="${d.link}">Ler artigo completo →</a>
+  `;
+  hlNode(key);
+}
+
+function hlNode(key){
+  // reset all
+  ['tigre','lotus','bambu'].forEach(k=>{
+    const n=document.getElementById('tn-'+k);
+    if(n)n.style.transform='';
+    const c=document.getElementById('tc-'+k);
+    if(c)c.classList.remove('hl');
+  });
+  ['ln-tb','ln-tl','ln-bl'].forEach(id=>{
+    const l=document.getElementById(id);
+    if(l)l.classList.remove('hl');
+  });
+  // highlight chosen
+  const n=document.getElementById('tn-'+key);
+  if(n)n.style.transform='scale(1.12)';
+  const c=document.getElementById('tc-'+key);
+  if(c)c.classList.add('hl');
+  panelData[key].lines.forEach(id=>{
+    const l=document.getElementById(id);
+    if(l)l.classList.add('hl');
+  });
+}
+
+function unhNode(){
+  if(activePanel){hlNode(activePanel);return;}
+  ['tigre','lotus','bambu'].forEach(k=>{
+    const n=document.getElementById('tn-'+k);
+    if(n)n.style.transform='';
+    const c=document.getElementById('tc-'+k);
+    if(c)c.classList.remove('hl');
+  });
+  ['ln-tb','ln-tl','ln-bl'].forEach(id=>{
+    const l=document.getElementById(id);
+    if(l)l.classList.remove('hl');
+  });
+}
+</script>
 </body>
 </html>

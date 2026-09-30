@@ -130,6 +130,43 @@ footer{background:var(--lq);}
 .fin .fzh{font-size:20px;letter-spacing:10px;color:rgba(200,150,12,.2);display:block;margin-bottom:6px;}
 .fin .bc{margin-top:8px;border-top:1px solid rgba(200,150,12,.1);padding-top:8px;font-size:11px;color:rgba(240,192,64,.22);}
 
+/* SÍMBOLO DO DIA */
+.sdd-sect{background:var(--lq);border-top:3px solid var(--gd);border-bottom:3px solid var(--gd);padding:44px 24px;}
+.sdd-inner{max-width:680px;margin:0 auto;text-align:center;}
+.sdd-inner .sdd-lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,192,64,.5);margin-bottom:6px;display:block;}
+.sdd-inner h2{font-size:20px;color:#fff;font-weight:700;margin-bottom:24px;}
+.sdd-card{background:rgba(255,255,255,.05);border:1px solid rgba(200,150,12,.2);padding:28px 32px;max-width:440px;margin:0 auto 20px;position:relative;}
+.sdd-ico{font-size:64px;display:block;line-height:1;margin-bottom:8px;transition:transform .4s;}
+.sdd-ico.spin{transform:scale(1.2) rotate(8deg);}
+.sdd-kanji{font-size:40px;font-weight:900;display:block;margin-bottom:8px;letter-spacing:8px;}
+.sdd-name{font-size:20px;color:#fff;font-weight:700;margin-bottom:6px;}
+.sdd-meaning{font-size:13.5px;font-style:italic;color:rgba(240,192,64,.7);margin-bottom:14px;line-height:1.6;}
+.sdd-values{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.sdd-tag{background:rgba(200,150,12,.15);border:1px solid rgba(200,150,12,.25);color:var(--g2);font-size:11px;padding:4px 12px;letter-spacing:1.5px;}
+.sdd-link{display:inline-block;padding:9px 22px;background:var(--gd);color:var(--lq);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background .2s;}
+.sdd-link:hover{background:var(--g2);}
+.sdd-shuffle{background:transparent;border:1px solid rgba(200,150,12,.3);color:rgba(240,192,64,.6);padding:9px 22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:Georgia,serif;transition:border-color .2s,color .2s;margin-left:8px;}
+.sdd-shuffle:hover{border-color:var(--g2);color:var(--g2);}
+
+/* VISITA TRACKER */
+.tracker-sect{max-width:1060px;margin:0 auto;padding:36px 24px 8px;}
+.tracker-inner{background:var(--p2);border:1px solid var(--p3);padding:20px 24px;display:flex;align-items:center;gap:20px;}
+.tracker-txt{flex:1;}
+.tracker-txt strong{font-size:14px;color:var(--ink);display:block;margin-bottom:4px;}
+.tracker-txt span{font-size:12.5px;color:var(--mu);font-style:italic;}
+.tracker-bar-wrap{flex:1;height:8px;background:var(--p3);position:relative;}
+.tracker-bar{height:100%;background:linear-gradient(90deg,var(--cr),var(--gd));transition:width .6s ease;width:0%;}
+.tracker-count{font-size:22px;font-weight:700;color:var(--cr);flex-shrink:0;min-width:60px;text-align:right;}
+
+/* SCROLL-TO-TOP */
+.stt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--lq);border:2px solid var(--gd);color:var(--g2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:999;}
+.stt.show{opacity:1;pointer-events:all;}
+.stt:hover{background:var(--cr);transform:translateY(-3px);}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
 @media(max-width:700px){
   .cards{grid-template-columns:1fr;}
   .vals{grid-template-columns:1fr;}
@@ -143,6 +180,8 @@ footer{background:var(--lq);}
   .q-opts{grid-template-columns:1fr;}
   .hero-btns{flex-direction:column;}
   .qband{padding:28px 22px;}
+  .tracker-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+  .sdd-shuffle{margin-left:0;margin-top:8px;}
 }
 </style>
 </head>
@@ -221,11 +260,23 @@ footer{background:var(--lq);}
   </div>
 </div>
 
+<!-- TRACKER -->
+<div class="tracker-sect">
+  <div class="tracker-inner">
+    <div class="tracker-txt">
+      <strong>Seu progresso de leitura</strong>
+      <span id="tracker-msg">Você ainda não visitou nenhum artigo. Comece explorando! 👇</span>
+    </div>
+    <div class="tracker-bar-wrap"><div class="tracker-bar" id="tracker-bar"></div></div>
+    <div class="tracker-count" id="tracker-count">0 / 3</div>
+  </div>
+</div>
+
 <!-- CARDS -->
 <div class="grid-sect">
   <div class="sect-title"><span>Explore os Símbolos</span><span class="zh-sm">探索符號</span></div>
   <div class="cards">
-    <a class="card" href="tigre.html">
+    <a class="card reveal" href="tigre.html">
       <div class="card-ico">
         <span class="big">🐯</span>
         <span class="kanji">虎</span>
@@ -234,7 +285,7 @@ footer{background:var(--lq);}
       <div class="card-desc">Animal símbolo de força, coragem e proteção. Presente na arte chinesa, japonesa e coreana há milênios, como guardião e espírito protetor.</div>
       <div class="card-foot">Ler artigo</div>
     </a>
-    <a class="card" href="lotus.html">
+    <a class="card reveal" href="lotus.html">
       <div class="card-ico">
         <span class="big">🪷</span>
         <span class="kanji">蓮</span>
@@ -243,7 +294,7 @@ footer{background:var(--lq);}
       <div class="card-desc">Flor sagrada do budismo. Símbolo de pureza, renovação e iluminação espiritual. Nasce na lama, mas floresce em beleza imaculada.</div>
       <div class="card-foot">Ler artigo</div>
     </a>
-    <a class="card" href="bambu.html">
+    <a class="card reveal" href="bambu.html">
       <div class="card-ico">
         <span class="big">🎋</span>
         <span class="kanji">竹</span>
@@ -274,6 +325,25 @@ footer{background:var(--lq);}
   </div>
 </div>
 
+<!-- SÍMBOLO DO DIA -->
+<div class="sdd-sect">
+  <div class="sdd-inner">
+    <span class="sdd-lbl">✦ · Descubra</span>
+    <h2>Símbolo do Dia · 今日符號</h2>
+    <div class="sdd-card">
+      <span class="sdd-ico" id="sdd-ico">🐯</span>
+      <span class="sdd-kanji" id="sdd-kanji" style="color:#8b0000">虎</span>
+      <div class="sdd-name" id="sdd-name">Tigre</div>
+      <div class="sdd-meaning" id="sdd-meaning">Animal símbolo de força, coragem e proteção na arte oriental.</div>
+      <div class="sdd-values" id="sdd-values">
+        <span class="sdd-tag">Força</span><span class="sdd-tag">Coragem</span><span class="sdd-tag">Proteção</span>
+      </div>
+      <a class="sdd-link" id="sdd-link" href="tigre.html">Ver artigo sobre Tigre →</a>
+    </div>
+    <button class="sdd-shuffle" onclick="shuffleSymbol()">↺ Sortear outro símbolo</button>
+  </div>
+</div>
+
 <!-- QUOTE -->
 <div class="qband">
   <span class="bkj">力 · 淨 · 韌</span>
@@ -282,19 +352,19 @@ footer{background:var(--lq);}
 
 <!-- VALUES -->
 <div class="vals">
-  <div class="val">
+  <div class="val reveal">
     <span class="vico">🐯</span>
     <span class="vzh">力</span>
     <h4>Força e Coragem</h4>
     <p>O tigre representa a energia para enfrentar qualquer desafio sem recuar.</p>
   </div>
-  <div class="val">
+  <div class="val reveal">
     <span class="vico">🪷</span>
     <span class="vzh">淨</span>
     <h4>Pureza e Renovação</h4>
     <p>A lótus representa o crescimento espiritual e a superação das adversidades.</p>
   </div>
-  <div class="val">
+  <div class="val reveal">
     <span class="vico">🎋</span>
     <span class="vzh">韌</span>
     <h4>Resistência e Equilíbrio</h4>
@@ -311,8 +381,64 @@ footer{background:var(--lq);}
   </div>
 </footer>
 
+<!-- SCROLL TO TOP -->
+<button class="stt" id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Voltar ao topo">↑</button>
+
 <script>
-const questions = [
+// ── SCROLL TO TOP ──
+const sttBtn = document.getElementById('stt');
+window.addEventListener('scroll',()=>{sttBtn.classList.toggle('show',window.scrollY>300);});
+
+// ── SCROLL REVEAL ──
+const revEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
+},{threshold:0.12});
+revEls.forEach(el=>revObs.observe(el));
+
+// ── VISIT TRACKER ──
+function updateTracker(){
+  const visited=['tigre','lotus','bambu'].filter(p=>localStorage.getItem('visited_'+p));
+  const n=visited.length;
+  document.getElementById('tracker-bar').style.width=(n/3*100)+'%';
+  document.getElementById('tracker-count').textContent=n+' / 3';
+  const msgs=[
+    'Você ainda não visitou nenhum artigo. Comece explorando! 👇',
+    'Bom começo! Você visitou '+n+' de 3 artigos.',
+    'Quase lá! Você visitou '+n+' de 3 artigos.',
+    '🎉 Parabéns! Você leu todos os 3 artigos!'
+  ];
+  document.getElementById('tracker-msg').textContent=msgs[n];
+}
+updateTracker();
+
+// ── SÍMBOLO DO DIA ──
+const symbols=[
+  {ico:'🐯',kj:'虎',name:'Tigre',meaning:'Animal símbolo de força, coragem e proteção na arte oriental.',tags:['Força','Coragem','Proteção'],link:'tigre.html',color:'#8b0000'},
+  {ico:'🪷',kj:'蓮',name:'Lótus',meaning:'Flor sagrada do budismo — nasce na lama, floresce em beleza e pureza.',tags:['Pureza','Renovação','Iluminação'],link:'lotus.html',color:'#6b2080'},
+  {ico:'🎋',kj:'竹',name:'Bambu',meaning:'Planta de sabedoria — dobra com o vento mas nunca quebra.',tags:['Resistência','Flexibilidade','Humildade'],link:'bambu.html',color:'#2e6b4f'},
+];
+let lastSym=new Date().getDate()%symbols.length;
+function shuffleSymbol(){
+  let idx;
+  do{idx=Math.floor(Math.random()*symbols.length);}while(idx===lastSym&&symbols.length>1);
+  lastSym=idx;renderSym(symbols[idx]);
+  const ico=document.getElementById('sdd-ico');
+  ico.classList.remove('spin');void ico.offsetWidth;ico.classList.add('spin');
+}
+function renderSym(s){
+  document.getElementById('sdd-ico').textContent=s.ico;
+  document.getElementById('sdd-kanji').textContent=s.kj;
+  document.getElementById('sdd-kanji').style.color=s.color;
+  document.getElementById('sdd-name').textContent=s.name;
+  document.getElementById('sdd-meaning').textContent=s.meaning;
+  document.getElementById('sdd-values').innerHTML=s.tags.map(t=>`<span class="sdd-tag">${t}</span>`).join('');
+  const lk=document.getElementById('sdd-link');
+  lk.href=s.link;lk.textContent='Ver artigo sobre '+s.name+' →';
+}
+renderSym(symbols[lastSym]);
+
+const questions=[
   {q:"O tigre branco (白虎) representa qual direção na cosmologia chinesa?",opts:["Norte","Sul","Leste","Oeste"],ans:3,tip:"O Tigre Branco é o guardião do Oeste e do outono."},
   {q:"A flor de lótus nasce em qual ambiente?",opts:["Desertos","Lagos e lama","Florestas secas","Montanhas nevadas"],ans:1,tip:"Ela nasce na lama e floresce limpa — símbolo de superação."},
   {q:"O bambu faz parte de qual grupo famoso na pintura chinesa?",opts:["Os Cinco Nobres","Os Quatro Nobres (四君子)","Os Três Amigos","Os Oito Imortais"],ans:1,tip:"四君子 = ameixeira, orquídea, bambu e crisântemo."},
